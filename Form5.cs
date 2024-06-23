@@ -26,5 +26,12 @@ namespace InventorySystem_Frank_Bishop
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 mainForm = new Form1();
+            mainForm.Show();
+        }
     }
 }

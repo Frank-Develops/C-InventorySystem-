@@ -17,9 +17,14 @@ namespace InventorySystem_Frank_Bishop
             InitializeComponent();
         }
 
-
-
-
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 mainForm = new Form1();
+            mainForm.Show();
+        }
     }
 }
+
+//maybe add data source to main grid 
+//create Part object when clicking Add 

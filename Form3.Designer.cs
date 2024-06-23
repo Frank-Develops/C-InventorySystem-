@@ -93,6 +93,7 @@
             button2.TabIndex = 4;
             button2.Text = "Cancel";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // textBox5
             // 
@@ -251,7 +252,7 @@
             PerformLayout();
         }
 
-#endregion
+        //#endregion
 
         private Label label1;
         private RadioButton radioButton1;
@@ -280,20 +281,20 @@
     /// Required method for Designer support - do not modify
     /// the contents of this method with the code editor.
     /// </summary>
-    private void InitializeComponent()
-        {
-            SuspendLayout();
-            // 
-            // Form3
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(800, 450);
-            Name = "Form3";
-            Text = "Form3";
-            ResumeLayout(false);
-        }
+    //private void InitializeComponent()
+    //    {
+    //        SuspendLayout();
+    //        // 
+    //        // Form3
+    //        // 
+    //        AutoScaleDimensions = new SizeF(7F, 15F);
+    //        AutoScaleMode = AutoScaleMode.Font;
+    //        BackColor = SystemColors.ActiveBorder;
+    //        ClientSize = new Size(800, 450);
+    //        Name = "Form3";
+    //        Text = "Form3";
+    //        ResumeLayout(false);
+    //    }
 
         #endregion
     }

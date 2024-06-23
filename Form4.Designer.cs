@@ -177,6 +177,7 @@
             button4.TabIndex = 10;
             button4.Text = "Cancel";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label8
             // 
