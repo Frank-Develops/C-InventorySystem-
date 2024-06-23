@@ -8,6 +8,7 @@ namespace InventorySystem_Frank_Bishop
 {
     internal class Product
     {
+        //InitializeComponent();
         public List<Part> AssociatedParts;
         public int ProductID;
         public String Name;
@@ -19,13 +20,15 @@ namespace InventorySystem_Frank_Bishop
         {
             Console.WriteLine("this is a test");
         }
-        public bool removeAssociatedPart(int i)
-        {
+        //public bool removeAssociatedPart(int i)
+        //{
+        //    Console.WriteLine("this is a test");
 
-        }
-        public Part lookupAssociatedPart(int i)
-        {
+        //    return true;
+        //}
+        //public Part lookupAssociatedPart(int i)
+        //{
 
-        }
+        //}
     }
 }
