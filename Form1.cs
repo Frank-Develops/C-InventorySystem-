@@ -7,8 +7,6 @@ namespace InventorySystem_Frank_Bishop
         public Form1()
         {
             InitializeComponent();
-            //partsGrid.BindingContext = new BindingContext();
-            //productsGrid.BindingContext = new BindingContext();
             partsGrid.DataSource = Inventory.AllParts;
             productsGrid.DataSource = Inventory.Products;
 

@@ -16,11 +16,12 @@ namespace InventorySystem_Frank_Bishop
         public int Max { get; set; }
 
         public Part() { }
-        public Part(int partID, string name, decimal price, int inStock, int min, int max) {
-            PartID= partID;
-            Name= name;
-            Price= price;
-            InStock= inStock;
+        public Part(int partID, string name, decimal price, int inStock, int min, int max)
+        {
+            PartID = partID;
+            Name = name;
+            Price = price;
+            InStock = inStock;
             Min = min;
             Max = max;
         }

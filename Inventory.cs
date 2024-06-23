@@ -82,9 +82,9 @@ namespace InventorySystem_Frank_Bishop
         //}
 
         //public void addPart(Part p)
-        public static void addPart(int partID, string name, decimal price, int inStock, int min, int max)
+        public static void addPart(int partID, string name, decimal price, int inStock, int min, int max, int MachineID)
         {
-            AllParts.Add(new Part(partID, name, price, inStock, min, max));
+            AllParts.Add(new Inhouse(partID, name, price, inStock, min, max, MachineID));
         }
 
         //public bool deletePart(Part p)

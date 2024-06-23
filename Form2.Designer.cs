@@ -62,6 +62,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
             radioButton1.Font = new Font("Segoe UI", 12F);
             radioButton1.Location = new Point(261, 28);
             radioButton1.Name = "radioButton1";
@@ -70,6 +71,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "In-House";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -79,9 +81,9 @@
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(109, 25);
             radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
             radioButton2.Text = "Outsourced";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // button1
             // 

@@ -32,13 +32,23 @@ namespace InventorySystem_Frank_Bishop
             int inventory = int.Parse(textBox3.Text);
             int max = int.Parse(textBox6.Text);
             int min = int.Parse(textBox7.Text);
+            int machineID=int.Parse(textBox5.Text);
 
-            Inventory.addPart(partID, name, price, inventory, max, min);
+            Inventory.addPart(partID, name, price, inventory, max, min, machineID);
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
 
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            label8.Text = "Company Name";
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            label8.Text = "Machine ID";
+        }
     }
 }
 
