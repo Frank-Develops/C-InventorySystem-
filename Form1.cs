@@ -22,6 +22,6 @@ namespace InventorySystem_Frank_Bishop
 
         }
 
-       
+
     }
 }
