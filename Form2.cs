@@ -25,3 +25,6 @@ namespace InventorySystem_Frank_Bishop
         }
     }
 }
+
+//maybe add data source to main grid 
+//create Part object when clicking Add 

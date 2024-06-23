@@ -10,15 +10,29 @@ namespace InventorySystem_Frank_Bishop
     {
         //InitializeComponent();
         public List<Part> AssociatedParts;
-        public int ProductID;
-        public String Name;
-        public decimal Price;
-        public int InStock;
-        public int Min;
-        public int Max;
+        public int ProductID { get; set; }
+        public String Name { get; set; }
+        public decimal Price { get; set; }
+        public int InStock { get; set; }
+        public int Min { get; set; }
+        public int Max { get; set; }
         public void addAssociatedPart(Part p)
         {
             Console.WriteLine("this is a test");
+
+        }
+
+        public Product() { }
+
+        public Product(int productID, String name, decimal price, int inStock, int min, int max) {
+
+            ProductID = productID;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
+
         }
         //public bool removeAssociatedPart(int i)
         //{
