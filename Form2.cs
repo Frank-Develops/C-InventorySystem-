@@ -23,8 +23,22 @@ namespace InventorySystem_Frank_Bishop
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int partID = int.Parse(textBox1.Text);
+            string name = textBox2.Text;
+            decimal price = decimal.Parse(textBox4.Text);
+            int inventory = int.Parse(textBox3.Text);
+            int max = int.Parse(textBox6.Text);
+            int min = int.Parse(textBox7.Text);
+
+            Inventory.addPart(partID, name, price, inventory, max, min);
+            this.Hide();
+            Form1 mainForm = new Form1();
+            mainForm.Show();
+        }
+
     }
 }
 
-//maybe add data source to main grid 
-//create Part object when clicking Add 
