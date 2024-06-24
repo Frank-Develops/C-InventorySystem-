@@ -108,10 +108,15 @@ namespace InventorySystem_Frank_Bishop
 
         //}
 
-        //public void updatePart(int i, Part p)
-        //{
-
-        //}
+        static public void updatePart(int i, Part p)
+        {
+            AllParts[i].PartID = p.PartID;
+            AllParts[i].Name = p.Name;
+            AllParts[i].Price = p.Price;
+            AllParts[i].InStock = p.InStock;
+            AllParts[i].Min = p.Min;
+            AllParts[i].Max = p.Max;
+        }
 
     }
 }
