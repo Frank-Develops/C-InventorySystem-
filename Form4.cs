@@ -16,20 +16,37 @@ namespace InventorySystem_Frank_Bishop
         {
             InitializeComponent();
             partsProductGrid.DataSource = Inventory.AllParts;
-            //productsGrid.DataSource = Inventory.Products;
+            //partsAssociatedGrid.DataSource = Product.partsAssociated;
+            partsAssociatedGrid.DataSource = partsAssociatedAdd;
             partsProductGrid.ReadOnly = true;
-            //productsGrid.ReadOnly = true;
+            partsAssociatedGrid.ReadOnly = true;
             partsProductGrid.MultiSelect = false;
-            //productsGrid.MultiSelect = false;
+            partsAssociatedGrid.MultiSelect = false;
             partsProductGrid.AllowUserToAddRows = false;
-            //productsGrid.AllowUserToAddRows = false;
+            partsAssociatedGrid.AllowUserToAddRows = false;
             partsProductGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            //productsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            partsAssociatedGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
+        
+        BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
+
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //int productID = int.Parse(textBox2.Text);
+            //Product toAddPart;
+            Part associatedPart = (Part)partsProductGrid.CurrentRow.DataBoundItem;
+            partsAssociatedAdd.Add(associatedPart);
+            //foreach (Product p in Inventory.Products)
+            //{
+            //    if (p.ProductID == productID)
+            //    {
+            //        toAddPart = p;
+                    
+            //    }
+            //}
 
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
