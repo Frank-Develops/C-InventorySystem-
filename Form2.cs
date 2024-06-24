@@ -35,18 +35,22 @@ namespace InventorySystem_Frank_Bishop
             int inventory = int.Parse(textBox3.Text);
             int max = int.Parse(textBox6.Text);
             int min = int.Parse(textBox7.Text);
+            
            
 
 
             if (checkedRadio == true)
             {
                 string machineID = textBox5.Text;
-                Inventory.addPart(partID, name, price, inventory, max, min, machineID, checkedRadio);
+                int machineIDnum = int.Parse(machineID);
+                Part newPart = new Inhouse(partID, name, price, inventory, min, max, machineIDnum);
+                Inventory.addPart(newPart);
             }
             else
             {
                 string companyName = textBox5.Text;
-                Inventory.addPart(partID, name, price, inventory, max, min, companyName, checkedRadio);
+                Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
+                Inventory.addPart(newPart);
             }
 
             this.Hide();
