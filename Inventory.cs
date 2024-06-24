@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -124,17 +125,13 @@ namespace InventorySystem_Frank_Bishop
 
             //}
         }
-            static public void updatePart(int i, Part p)
-            {
-                AllParts[i].PartID = p.PartID;
-                AllParts[i].Name = p.Name;
-                AllParts[i].Price = p.Price;
-                AllParts[i].InStock = p.InStock;
-                AllParts[i].Min = p.Min;
-                AllParts[i].Max = p.Max;
-            }
-
+        static public void updatePart(int i, Part p)
+        {
+            AllParts[i] = p;
         }
-    }
+        }
+
+ }
+    
 
 
