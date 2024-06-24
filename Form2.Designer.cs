@@ -47,6 +47,7 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
+            textBox8 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -62,6 +63,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
+            radioButton1.Checked = true;
             radioButton1.Font = new Font("Segoe UI", 12F);
             radioButton1.Location = new Point(261, 28);
             radioButton1.Name = "radioButton1";
@@ -70,6 +72,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "In-House";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -79,9 +82,9 @@
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(109, 25);
             radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
             radioButton2.Text = "Outsourced";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // button1
             // 
@@ -91,6 +94,7 @@
             button1.TabIndex = 3;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -228,12 +232,22 @@
             label8.TabIndex = 22;
             label8.Text = "Machine ID";
             // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(430, 397);
+            textBox8.MinimumSize = new Size(1, 1);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new Size(224, 23);
+            textBox8.TabIndex = 23;
+            textBox8.Visible = false;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(739, 561);
+            Controls.Add(textBox8);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -280,5 +294,6 @@
         private Label label6;
         private Label label7;
         private Label label8;
+        private TextBox textBox8;
     }
 }
