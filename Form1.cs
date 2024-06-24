@@ -40,7 +40,9 @@ namespace InventorySystem_Frank_Bishop
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form3 modifyParts = new Form3();
+            string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
+            int partID = int.Parse(partIDString);
+            Form3 modifyParts = new Form3(partID);
             modifyParts.Show();
         }
 
