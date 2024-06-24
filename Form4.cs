@@ -15,6 +15,16 @@ namespace InventorySystem_Frank_Bishop
         public Form4()
         {
             InitializeComponent();
+            partsProductGrid.DataSource = Inventory.AllParts;
+            //productsGrid.DataSource = Inventory.Products;
+            partsProductGrid.ReadOnly = true;
+            //productsGrid.ReadOnly = true;
+            partsProductGrid.MultiSelect = false;
+            //productsGrid.MultiSelect = false;
+            partsProductGrid.AllowUserToAddRows = false;
+            //productsGrid.AllowUserToAddRows = false;
+            partsProductGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //productsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void button3_Click(object sender, EventArgs e)

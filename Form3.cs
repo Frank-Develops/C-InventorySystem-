@@ -65,6 +65,9 @@ namespace InventorySystem_Frank_Bishop
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            //make an if/else depending on what radio button is clicked, then go In-House or Outsourced.  If it is changing
+            //the type, then delete the previous part and add a new one with the same ID
             Part modifiedPart = new Part(
 
                 int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text)
