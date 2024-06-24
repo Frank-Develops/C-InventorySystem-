@@ -9,7 +9,14 @@ namespace InventorySystem_Frank_Bishop
             InitializeComponent();
             partsGrid.DataSource = Inventory.AllParts;
             productsGrid.DataSource = Inventory.Products;
-
+            partsGrid.ReadOnly = true;
+            productsGrid.ReadOnly = true;
+            partsGrid.MultiSelect = false;
+            productsGrid.MultiSelect = false;
+            partsGrid.AllowUserToAddRows = false;
+            productsGrid.AllowUserToAddRows = false;
+            partsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            productsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
