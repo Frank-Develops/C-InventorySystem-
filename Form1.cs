@@ -1,4 +1,6 @@
+using System.Globalization;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace InventorySystem_Frank_Bishop
 {
@@ -65,6 +67,25 @@ namespace InventorySystem_Frank_Bishop
             this.Hide();
         }
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(partsGrid.SelectedRows[0].Cells[2].Value.ToString());
+            string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
+            int partID = int.Parse(partIDString);
+            string partName = partsGrid.SelectedRows[0].Cells[1].Value.ToString();
+            string inventory = partsGrid.SelectedRows[0].Cells[3].Value.ToString();
+            int inventoryNum = int.Parse(inventory);
+            //string partPrice = partsGrid.SelectedRows[0].Cells[3].Value.ToString();
+            decimal price = Convert.ToDecimal(partsGrid.SelectedRows[0].Cells[2].Value.ToString());
+            string minP = partsGrid.SelectedRows[0].Cells[4].Value.ToString();
+            int minPNum = int.Parse(minP);
+            string maxP = partsGrid.SelectedRows[0].Cells[5].Value.ToString();
+            int maxPNum = int.Parse(maxP);
+
+            Part deletePart = new Part(partID, partName, price,inventoryNum, minPNum, maxPNum);
+            Inventory.deletePart(deletePart);
+            partsGrid.Update();
+            partsGrid.Refresh();
+        }
     }
 }
