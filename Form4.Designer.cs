@@ -146,6 +146,7 @@
             button1.TabIndex = 7;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 

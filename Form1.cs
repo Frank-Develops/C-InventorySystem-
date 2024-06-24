@@ -82,10 +82,17 @@ namespace InventorySystem_Frank_Bishop
             string maxP = partsGrid.SelectedRows[0].Cells[5].Value.ToString();
             int maxPNum = int.Parse(maxP);
 
-            Part deletePart = new Part(partID, partName, price,inventoryNum, minPNum, maxPNum);
+            Part deletePart = new Part(partID, partName, price, inventoryNum, minPNum, maxPNum);
             Inventory.deletePart(deletePart);
             partsGrid.Update();
             partsGrid.Refresh();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string productIDString = productsGrid.SelectedRows[0].Cells[0].Value.ToString();
+            int productID = int.Parse(productIDString);
+            Inventory.removeProduct(productID);
         }
     }
 }

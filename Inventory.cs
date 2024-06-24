@@ -64,14 +64,24 @@ namespace InventorySystem_Frank_Bishop
             });
 
         }
-        //public void addProduct(Product p)
-        //{
+        public static void addProduct(Product p)
+        {
+            Products.Add(p);
+        }
+        public static bool removeProduct(int i)
+        {
+            foreach (Product p in Products)
+            {
+                if (p.ProductID == i) {
+                    int remove = Inventory.Products.IndexOf(p);
+                    remove = Math.Abs(remove);
+                    Inventory.Products.RemoveAt(remove);
+                    break;
+                }
+            }
 
-        //}
-        //public bool removeProduct(int i)
-        //{
-
-        //}
+            return true;
+        }
 
         //public Product lookupProduct(int i)
         //{
