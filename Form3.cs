@@ -15,6 +15,8 @@ namespace InventorySystem_Frank_Bishop
         public Form3()
         {
             InitializeComponent();
+            textBox1.Text = Inventory.AllParts[0].PartID.ToString();
+            textBox2.Text = Inventory.AllParts[1].PartID.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
