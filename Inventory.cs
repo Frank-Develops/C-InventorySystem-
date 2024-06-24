@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -93,19 +94,10 @@ namespace InventorySystem_Frank_Bishop
 
         //}
 
-        //public void addPart(Part p)
-        public static void addPart(int partID, string name, decimal price, int inStock, int min, int max, string machineCompany, bool checkedRadio)
-        {
-            if (checkedRadio == true)
-            {
-                int machineID = int.Parse(machineCompany);
-                AllParts.Add(new Inhouse(partID, name, price, inStock, min, max, machineID));
-            }
-            else
-            {
-                MessageBox.Show("this one calls");
-                AllParts.Add(new Outsourced(partID, name, price, inStock, min, max, machineCompany));
-            }
+        public static void addPart(Part p) {
+        
+            AllParts.Add(p);
+
         }
 
         static public bool deletePart(Part p)
@@ -133,17 +125,13 @@ namespace InventorySystem_Frank_Bishop
 
             //}
         }
-            static public void updatePart(int i, Part p)
-            {
-                AllParts[i].PartID = p.PartID;
-                AllParts[i].Name = p.Name;
-                AllParts[i].Price = p.Price;
-                AllParts[i].InStock = p.InStock;
-                AllParts[i].Min = p.Min;
-                AllParts[i].Max = p.Max;
-            }
-
+        static public void updatePart(int i, Part p)
+        {
+            AllParts[i] = p;
         }
-    }
+        }
+
+ }
+    
 
 

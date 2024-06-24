@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,11 +39,14 @@ namespace InventorySystem_Frank_Bishop
                     {
                         Inhouse ip = (Inhouse)partModify;
                         textBox5.Text = ip.MachineID.ToString();
+                        radioButton1.Checked = true;
                     }
                     else if (partModify.GetType() == typeof(Outsourced))
                     {
                         Outsourced op = (Outsourced)partModify;
-                        //change text box
+
+                        label8.Text = "Company ID";
+                        radioButton2.Checked = true;
                         textBox5.Text = op.CompanyName.ToString();
                     }
 
@@ -66,19 +70,39 @@ namespace InventorySystem_Frank_Bishop
         private void button1_Click(object sender, EventArgs e)
         {
 
-            //make an if/else depending on what radio button is clicked, then go In-House or Outsourced.  If it is changing
-            //the type, then delete the previous part and add a new one with the same ID
-            Part modifiedPart = new Part(
+            if (radioButton1.Checked)
+            {
 
-                int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text)
-                
-                
-                );
+                Part modifiedPart = new Inhouse(
 
-            Inventory.updatePart(partIndex, modifiedPart);
+                    int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), int.Parse(textBox5.Text)
+
+                    );
+                Inventory.updatePart(partIndex, modifiedPart);
+            }
+            else
+            {
+                Part modifiedPart = new Outsourced(
+
+                    int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), textBox5.Text
+
+                    );
+                Inventory.updatePart(partIndex, modifiedPart);
+            };
+
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            label8.Text = "Machine ID";
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            label8.Text = "Company Name";
         }
     }
 }

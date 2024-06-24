@@ -63,6 +63,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "In-House";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // radioButton2
             // 
@@ -75,6 +76,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "Outsourced";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // button1
             // 
@@ -98,7 +100,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(363, 397);
+            textBox5.Location = new Point(395, 401);
             textBox5.MinimumSize = new Size(1, 1);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(224, 23);
