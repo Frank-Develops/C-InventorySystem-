@@ -8,7 +8,6 @@ namespace InventorySystem_Frank_Bishop
 {
     internal class Product
     {
-        //InitializeComponent();
         public List<Part> AssociatedParts;
         public int ProductID { get; set; }
         public String Name { get; set; }
