@@ -124,6 +124,7 @@
             button6.TabIndex = 5;
             button6.Text = "Delete";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button7
             // 
