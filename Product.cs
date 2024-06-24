@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace InventorySystem_Frank_Bishop
 {
     internal class Product
     {
-        public List<Part> AssociatedParts;
+        public static BindingList<Part> partsAssociated= new BindingList<Part>();
         public int ProductID { get; set; }
         public String Name { get; set; }
         public decimal Price { get; set; }
@@ -17,8 +18,8 @@ namespace InventorySystem_Frank_Bishop
         public int Max { get; set; }
         public void addAssociatedPart(Part p)
         {
-            Console.WriteLine("this is a test");
-
+                
+            partsAssociated.Add(p);
         }
 
         public Product() { }
