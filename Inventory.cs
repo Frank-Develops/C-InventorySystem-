@@ -19,24 +19,26 @@ namespace InventorySystem_Frank_Bishop
         public static BindingList<Part> AllParts = new BindingList<Part>();
         static Inventory()
         {
-            AllParts.Add(new Part()
+            AllParts.Add(new Inhouse()
             {
                 PartID = 1,
                 Name = "Part 1",
                 Price = 35.67M,
                 InStock = 10,
                 Min = 1,
-                Max = 2
+                Max = 2,
+                MachineID = 3
             });
 
-            AllParts.Add(new Part()
+            AllParts.Add(new Outsourced()
             {
                 PartID = 2,
                 Name = "Part 2",
                 Price = 40.67M,
                 InStock = 5,
                 Min = 1,
-                Max = 5
+                Max = 6,
+                CompanyName = "The Test"
             });
 
             Products.Add(new Product()

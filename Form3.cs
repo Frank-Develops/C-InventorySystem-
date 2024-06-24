@@ -17,24 +17,51 @@ namespace InventorySystem_Frank_Bishop
         {
             InitializeComponent();
             int partListID = partID;
-            Part partModify = Inventory.AllParts[0];
+            Part partModify;
 
             foreach (Part p in Inventory.AllParts)
             {
                 if (p.PartID == partListID)
                 {
-                    partModify = p;
-                    break;
+                    partModify = p;               
+                    textBox1.Text = partModify.PartID.ToString();
+                    textBox2.Text = partModify.Name.ToString();
+                    textBox3.Text = partModify.InStock.ToString();
+                    textBox4.Text = partModify.Price.ToString();
+                    textBox6.Text = partModify.Max.ToString();
+                    textBox7.Text = partModify.Min.ToString();
+                    
+                    if(partModify.GetType() == typeof(Inhouse))
+                    {
+                        Inhouse ip = (Inhouse)partModify;
+                        textBox5.Text = ip.MachineID.ToString();
+                    } else if(partModify.GetType() == typeof(Outsourced))
+                    {
+                        Outsourced op = (Outsourced)partModify;
+                        textBox5.Text = op.CompanyName.ToString();
+                    }
+                    
+                    
+
                 }
+
+
             }
 
-            textBox1.Text = partModify.PartID.ToString();
-            textBox2.Text = partModify.Name.ToString();
-            textBox3.Text = partModify.InStock.ToString();
-            textBox4.Text = partModify.Price.ToString();
-            textBox6.Text = partModify.Max.ToString();
-            textBox7.Text = partModify.Min.ToString();
-            //textBox6.Text = partModify.MachineID.ToString();
+            //textBox1.Text = partModify.PartID.ToString();
+            //textBox2.Text = partModify.Name.ToString();
+            //textBox3.Text = partModify.InStock.ToString();
+            //textBox4.Text = partModify.Price.ToString();
+            //textBox6.Text = partModify.Max.ToString();
+            //textBox7.Text = partModify.Min.ToString();
+
+            //maybe do if/else to determine if it is a Inhouse or Outsourced and include textboxes in those 
+
+            //textBox5.Text = partModify.CompanyName.ToString();
+            //if(partModify.MachineID)
+            //{
+
+            //}
         }
 
         private void button2_Click(object sender, EventArgs e)
