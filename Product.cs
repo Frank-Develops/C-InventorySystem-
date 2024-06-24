@@ -16,7 +16,7 @@ namespace InventorySystem_Frank_Bishop
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
-        public static void addAssociatedPart(Part p)
+        public void addAssociatedPart(Part p)
         {
                 
             partsAssociated.Add(p);

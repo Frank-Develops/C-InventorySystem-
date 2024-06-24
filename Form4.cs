@@ -66,6 +66,11 @@ namespace InventorySystem_Frank_Bishop
             int min = int.Parse(textBox7.Text);
             Product addedProduct = new Product(productID, name, price, inventory, min, max);
             Inventory.addProduct(addedProduct);
+            foreach (Part p in partsAssociatedAdd)
+            {
+                addedProduct.addAssociatedPart(p);
+            }
+            this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
