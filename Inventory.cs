@@ -15,7 +15,7 @@ namespace InventorySystem_Frank_Bishop
     internal class Inventory
     {
         public static BindingList<Product> Products = new BindingList<Product>();
-        
+
         public static BindingList<Part> AllParts = new BindingList<Part>();
         static Inventory()
         {
@@ -23,7 +23,7 @@ namespace InventorySystem_Frank_Bishop
             {
                 PartID = 1,
                 Name = "Part 1",
-                Price = 35.67M,
+                Price = 35.67m,
                 InStock = 10,
                 Min = 1,
                 Max = 2,
@@ -98,28 +98,42 @@ namespace InventorySystem_Frank_Bishop
             }
         }
 
-        //public bool deletePart(Part p)
-        //{
-
-        //}
-
-        //public Part lookupPart(int i)
-        //{
-
-        //}
-
-        static public void updatePart(int i, Part p)
+        static public bool deletePart(Part p)
         {
-            AllParts[i].PartID = p.PartID;
-            AllParts[i].Name = p.Name;
-            AllParts[i].Price = p.Price;
-            AllParts[i].InStock = p.InStock;
-            AllParts[i].Min = p.Min;
-            AllParts[i].Max = p.Max;
+            foreach (Part pa in Inventory.AllParts)
+            {
+                if (pa.PartID == p.PartID)
+                {
+
+                    int remove = Inventory.AllParts.IndexOf(pa);
+                    remove = Math.Abs(remove);
+                    Inventory.AllParts.RemoveAt(remove);
+                    
+                    return true;
+                }
+               
+
+                    
+                
+            }
+            return false;
+
+            //public Part lookupPart(int i)
+            //{
+
+            //}
         }
+            static public void updatePart(int i, Part p)
+            {
+                AllParts[i].PartID = p.PartID;
+                AllParts[i].Name = p.Name;
+                AllParts[i].Price = p.Price;
+                AllParts[i].InStock = p.InStock;
+                AllParts[i].Min = p.Min;
+                AllParts[i].Max = p.Max;
+            }
 
+        }
     }
-}
-
 
 
