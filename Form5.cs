@@ -115,12 +115,33 @@ namespace InventorySystem_Frank_Bishop
             //        productModify.removeAssociatedPart(removeIndex);
             //        partsAssociatedGridM.Update();
             //        partsAssociatedGridM.Refresh();
-                  
+
             //    }
             //}
-            
 
 
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            int search = int.Parse(textBox1.Text);
+            Part searchPart = Inventory.lookupPart(search);
+
+            foreach (DataGridViewRow partRow in partsProductGridM.Rows)
+            {
+
+                string partIDString = partRow.Cells[0].Value.ToString();
+                int partID = int.Parse(partIDString);
+
+
+                if (partID == searchPart.PartID)
+                {
+                    partRow.Selected = true;
+
+                    break;
+                }
+            }
         }
     }
 }

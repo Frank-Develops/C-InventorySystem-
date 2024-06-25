@@ -42,9 +42,19 @@ namespace InventorySystem_Frank_Bishop
                  return true;     
         }
 
-        //public Part lookupAssociatedPart(int i)
-        //{
+        public Part lookupAssociatedPart(int i)
+        {
+            foreach (Part p in Inventory.AllParts)
+            {
+                if (p.PartID == i)
+                {
 
-        //}
+                    return p;
+                }
+            }
+
+            Part noPart = null;
+            return noPart;
+        }
     }
 }
