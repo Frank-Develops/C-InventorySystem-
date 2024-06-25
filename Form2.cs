@@ -13,12 +13,13 @@ namespace InventorySystem_Frank_Bishop
 {
     public partial class Form2 : Form
     {
+       
         public Form2()
         {
             InitializeComponent();
         }
-
-        bool checkedRadio = true;
+        //this is the issue, change this to fix save issue
+        //bool checkedRadio = true;
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -39,7 +40,7 @@ namespace InventorySystem_Frank_Bishop
            
 
 
-            if (checkedRadio == true)
+            if (radioButton1.Checked)
             {
                 string machineID = textBox5.Text;
                 int machineIDnum = int.Parse(machineID);
@@ -60,17 +61,15 @@ namespace InventorySystem_Frank_Bishop
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            checkedRadio = false;
-            textBox5.Hide();
-            textBox8.Show();
+            //checkedRadio = false;
+           
             label8.Text = "Company Name";
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            checkedRadio = true;
-            textBox5.Show();
-            textBox8.Hide();
+            //checkedRadio = true;
+            
             label8.Text = "Machine ID";
         }
     }

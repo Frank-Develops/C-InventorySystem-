@@ -47,7 +47,6 @@
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
-            textBox8 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -108,7 +107,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(363, 397);
+            textBox5.Location = new Point(405, 397);
             textBox5.MinimumSize = new Size(1, 1);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(224, 23);
@@ -232,22 +231,12 @@
             label8.TabIndex = 22;
             label8.Text = "Machine ID";
             // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(430, 397);
-            textBox8.MinimumSize = new Size(1, 1);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(224, 23);
-            textBox8.TabIndex = 23;
-            textBox8.Visible = false;
-            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonShadow;
             ClientSize = new Size(739, 561);
-            Controls.Add(textBox8);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -294,6 +283,5 @@
         private Label label6;
         private Label label7;
         private Label label8;
-        private TextBox textBox8;
     }
 }

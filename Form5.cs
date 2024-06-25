@@ -14,19 +14,32 @@ namespace InventorySystem_Frank_Bishop
     public partial class Form5 : Form
     {
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
+        //the problem is how I add the associated parts, since it adds them for all item
+        //I need to make it so they get linked only to the Product, and still populate in the DataGrid
         int productIndex = 0;
         Product productModify;
-
+        //Product productModify = Inventory.lookupProduct(int.Parse(textBox2.Text));
         public Form5(int productID)
         {
             InitializeComponent();
 
-
+            //partsAssociatedAdd.Clear();
+            //something is happening causing modify product not to get all fields, maybe I need to use lookup product
+            //and populate the fields using that
+            //also company name not saving with Add
+            //associated parts not saving with initial add 
 
             //Product productModify;
 
             partsProductGridM.DataSource = Inventory.AllParts;
-            partsAssociatedGridM.DataSource = partsAssociatedAdd;
+            //partsAssociatedGridM.DataSource = partsAssociatedAdd;
+            //try this
+            productModify = Inventory.lookupProduct(productID);
+            textBox2.Text = productModify.ProductID.ToString();
+
+            partsAssociatedGridM.DataSource = productModify.partsAssociated;
+            //maybe add the rows with a foreach
+
 
             partsAssociatedGridM.ReadOnly = true;
             partsProductGridM.ReadOnly = true;
@@ -37,27 +50,27 @@ namespace InventorySystem_Frank_Bishop
             partsAssociatedGridM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             partsProductGridM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            foreach (Product p in Inventory.Products)
-            {
-                if (p.ProductID == productID)
-                {
-                    productModify = p;
-                    productIndex = Inventory.Products.IndexOf(p);
-                    textBox2.Text = productModify.ProductID.ToString();
-                    textBox3.Text = productModify.Name.ToString();
-                    textBox4.Text = productModify.InStock.ToString();
-                    textBox5.Text = productModify.Price.ToString();
-                    textBox6.Text = productModify.Max.ToString();
-                    textBox7.Text = productModify.Min.ToString();
+            //foreach (Product p in Inventory.Products)
+            //{
+            //    if (p.ProductID == productID)
+            //    {
+            //        productModify = p;
+            //        productIndex = Inventory.Products.IndexOf(p);
+            //        textBox2.Text = productModify.ProductID.ToString();
+            //        textBox3.Text = productModify.Name.ToString();
+            //        textBox4.Text = productModify.InStock.ToString();
+            //        textBox5.Text = productModify.Price.ToString();
+            //        textBox6.Text = productModify.Max.ToString();
+            //        textBox7.Text = productModify.Min.ToString();
 
-                    foreach (Part pa in productModify.partsAssociated)
-                    {
-                        //productModify.addAssociatedPart(pa);
-                        partsAssociatedAdd.Add(pa);
-                    }
+            //        foreach (Part pa in productModify.partsAssociated)
+            //        {
+            //            //productModify.addAssociatedPart(pa);
+            //            partsAssociatedAdd.Add(pa);
+            //        }
 
-                }
-            }
+            //    }
+            //}
 
 
         }
@@ -74,6 +87,7 @@ namespace InventorySystem_Frank_Bishop
 
         private void button4_Click(object sender, EventArgs e)
         {
+            //partsAssociatedAdd.Clear();
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
@@ -95,6 +109,7 @@ namespace InventorySystem_Frank_Bishop
                 modifyProduct.partsAssociated.Add(pa);
             }
             Inventory.updateProduct(productIndex, modifyProduct);
+            //partsAssociatedAdd.Clear();
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
@@ -104,20 +119,21 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string partIDString = partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString();
-            int partID = int.Parse(partIDString);
-            productModify.removeAssociatedPart(partID);
-            //foreach (Part p in productModify.partsAssociated)
-            //{
-            //    if (p.PartID == partID)
-            //    {
-            //        int removeIndex = productModify.partsAssociated.IndexOf(p);
-            //        productModify.removeAssociatedPart(removeIndex);
-            //        partsAssociatedGridM.Update();
-            //        partsAssociatedGridM.Refresh();
+            int partID = int.Parse(partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString());
+            
+            Product removePartP = Inventory.lookupProduct(int.Parse(textBox2.Text));
+            
+            foreach (Part p in removePartP.partsAssociated.ToList())
+            {
+                if (p.PartID == partID) {
+                    MessageBox.Show(p.PartID.ToString());
+                    int pRemove = removePartP.partsAssociated.IndexOf(p);
+                    removePartP.removeAssociatedPart(pRemove);
+                }
 
-            //    }
-            //}
+            }
+            //int removePart = int.Parse(partsAssociatedGrid.SelectedRows[0].Cells[0].Value.ToString());
+            //Part removePartp = Inventory.lookupPart(removePart);
 
 
 
@@ -142,6 +158,11 @@ namespace InventorySystem_Frank_Bishop
                     break;
                 }
             }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
