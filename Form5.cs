@@ -90,6 +90,15 @@ namespace InventorySystem_Frank_Bishop
             int minNum = int.Parse(textBox7.Text);
 
             Product modifyProduct = new Product(productID, productName, price, inventory, minNum, maxNum);
+            foreach (Product p in Inventory.Products)
+            {
+
+                if (p.ProductID == productID)
+                {
+                    productIndex = Inventory.Products.IndexOf(p);
+                }
+            }
+
             foreach (Part pa in partsAssociatedAdd)
             {
                 modifyProduct.partsAssociated.Add(pa);
@@ -107,18 +116,7 @@ namespace InventorySystem_Frank_Bishop
             string partIDString = partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString();
             int partID = int.Parse(partIDString);
             productModify.removeAssociatedPart(partID);
-            //foreach (Part p in productModify.partsAssociated)
-            //{
-            //    if (p.PartID == partID)
-            //    {
-            //        int removeIndex = productModify.partsAssociated.IndexOf(p);
-            //        productModify.removeAssociatedPart(removeIndex);
-            //        partsAssociatedGridM.Update();
-            //        partsAssociatedGridM.Refresh();
-                  
-            //    }
-            //}
-            
+           
 
 
         }
