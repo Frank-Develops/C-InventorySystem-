@@ -13,11 +13,12 @@ namespace InventorySystem_Frank_Bishop
     public partial class Form5 : Form
     {
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
+        int productIndex = 0;
         public Form5(int productID)
         {
             InitializeComponent();
 
-            int productIndex = 0;
+           
 
             Product productModify;
 
@@ -76,8 +77,26 @@ namespace InventorySystem_Frank_Bishop
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
-            //this is where to put modify product function 
+            int productID = int.Parse(textBox2.Text);
+            string productName = textBox3.Text;
+            int inventory = int.Parse(textBox4.Text);
+            decimal price = decimal.Parse(textBox5.Text);
+            int maxNum = int.Parse(textBox6.Text);
+            int minNum = int.Parse(textBox7.Text);
+
+            Product modifyProduct = new Product(productID, productName, price, inventory, minNum, maxNum );
+            foreach(Part pa in partsAssociatedAdd)
+            {
+                   modifyProduct.partsAssociated.Add(pa);
+            }
+            Inventory.updateProduct(productIndex, modifyProduct);
+            this.Hide();
+            Form1 mainForm = new Form1();
+            mainForm.Show();
+
+
         }
     }
 }
