@@ -77,12 +77,17 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
                 foreach (DataGridViewRow partsRow in partsAssociatedGrid.SelectedRows)
                 {
                     partsAssociatedGrid.Rows.RemoveAt(partsRow.Index);
                 }
-            
+            } else
+            {
+                return;
+            }
         }
     }
 }

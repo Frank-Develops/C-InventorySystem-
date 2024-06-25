@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -111,12 +112,18 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-        
-
-            foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
             {
-                partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
-                productModify.removeAssociatedPart(0);
+
+                foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
+                {
+                    partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
+                    productModify.removeAssociatedPart(0);
+                }
+            } else
+            {
+                return;
             }
 
 
