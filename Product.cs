@@ -34,12 +34,16 @@ namespace InventorySystem_Frank_Bishop
             Max = max;
 
         }
-        //public bool removeAssociatedPart(int i)
-        //{
-        //    Console.WriteLine("this is a test");
+        public bool removeAssociatedPart(int i)
+        {
+                
+            
+                 partsAssociated.RemoveAt(i);
+                 return true;
+                
 
-        //    return true;
-        //}
+           
+        }
         //public Part lookupAssociatedPart(int i)
         //{
 

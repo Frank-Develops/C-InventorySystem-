@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,16 @@ namespace InventorySystem_Frank_Bishop
     public partial class Form5 : Form
     {
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
+        int productIndex = 0;
+        Product productModify;
+
         public Form5(int productID)
         {
             InitializeComponent();
 
-            int productIndex = 0;
 
-            Product productModify;
+
+            //Product productModify;
 
             partsProductGridM.DataSource = Inventory.AllParts;
             partsAssociatedGridM.DataSource = partsAssociatedAdd;
@@ -45,8 +49,8 @@ namespace InventorySystem_Frank_Bishop
                     textBox5.Text = productModify.Price.ToString();
                     textBox6.Text = productModify.Max.ToString();
                     textBox7.Text = productModify.Min.ToString();
-                    
-                    foreach (Part pa in productModify.partsAssociated) 
+
+                    foreach (Part pa in productModify.partsAssociated)
                     {
                         //productModify.addAssociatedPart(pa);
                         partsAssociatedAdd.Add(pa);
@@ -76,8 +80,47 @@ namespace InventorySystem_Frank_Bishop
         }
 
         private void button1_Click(object sender, EventArgs e)
+
         {
-            //this is where to put modify product function 
+            int productID = int.Parse(textBox2.Text);
+            string productName = textBox3.Text;
+            int inventory = int.Parse(textBox4.Text);
+            decimal price = decimal.Parse(textBox5.Text);
+            int maxNum = int.Parse(textBox6.Text);
+            int minNum = int.Parse(textBox7.Text);
+
+            Product modifyProduct = new Product(productID, productName, price, inventory, minNum, maxNum);
+            foreach (Part pa in partsAssociatedAdd)
+            {
+                modifyProduct.partsAssociated.Add(pa);
+            }
+            Inventory.updateProduct(productIndex, modifyProduct);
+            this.Hide();
+            Form1 mainForm = new Form1();
+            mainForm.Show();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string partIDString = partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString();
+            int partID = int.Parse(partIDString);
+            productModify.removeAssociatedPart(partID);
+            //foreach (Part p in productModify.partsAssociated)
+            //{
+            //    if (p.PartID == partID)
+            //    {
+            //        int removeIndex = productModify.partsAssociated.IndexOf(p);
+            //        productModify.removeAssociatedPart(removeIndex);
+            //        partsAssociatedGridM.Update();
+            //        partsAssociatedGridM.Refresh();
+                  
+            //    }
+            //}
+            
+
+
         }
     }
 }

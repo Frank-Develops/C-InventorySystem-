@@ -89,10 +89,10 @@ namespace InventorySystem_Frank_Bishop
 
         //}
 
-        //public void updateProduct(int i, Product p)
-        //{
-
-        //}
+        public static void updateProduct(int i, Product p)
+        {
+            Inventory.Products[i] = p;
+        }
 
         public static void addPart(Part p) {
         
