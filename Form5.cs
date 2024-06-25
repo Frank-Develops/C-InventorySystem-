@@ -16,10 +16,10 @@ namespace InventorySystem_Frank_Bishop
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
         //the problem is how I add the associated parts, since it adds them for all item
         //I need to make it so they get linked only to the Product, and still populate in the DataGrid
-        int productIndex = 0;
+        //int productIndex = 0;
         Product productModify;
         //Product productModify = Inventory.lookupProduct(int.Parse(textBox2.Text));
-        public Form5(int productID)
+        public Form5(int modify)
         {
             InitializeComponent();
 
@@ -29,15 +29,28 @@ namespace InventorySystem_Frank_Bishop
             //also company name not saving with Add
             //associated parts not saving with initial add 
 
+            productModify = Inventory.lookupProduct(modify);
+
+            foreach (Part p in productModify.partsAssociated)
+            {
+                partsAssociatedAdd.Add(p);
+
+            }
+
             //Product productModify;
 
             partsProductGridM.DataSource = Inventory.AllParts;
-            //partsAssociatedGridM.DataSource = partsAssociatedAdd;
+            partsAssociatedGridM.DataSource = partsAssociatedAdd;
             //try this
-            productModify = Inventory.lookupProduct(productID);
+            //productModify = Inventory.lookupProduct(productID);
             textBox2.Text = productModify.ProductID.ToString();
+            textBox3.Text = productModify.Name.ToString();
+            textBox4.Text = productModify.InStock.ToString();
+            textBox5.Text = productModify.Price.ToString();
+            textBox6.Text = productModify.Max.ToString();
+            textBox7.Text = productModify.Min.ToString();
 
-            partsAssociatedGridM.DataSource = productModify.partsAssociated;
+            //partsAssociatedGridM.DataSource = productModify.partsAssociated;
             //maybe add the rows with a foreach
 
 
@@ -108,7 +121,7 @@ namespace InventorySystem_Frank_Bishop
             {
                 modifyProduct.partsAssociated.Add(pa);
             }
-            Inventory.updateProduct(productIndex, modifyProduct);
+            Inventory.updateProduct(0, modifyProduct);
             //partsAssociatedAdd.Clear();
             this.Hide();
             Form1 mainForm = new Form1();

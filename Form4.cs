@@ -11,7 +11,11 @@ using System.Windows.Forms;
 namespace InventorySystem_Frank_Bishop
 {
     public partial class Form4 : Form
+
+
     {
+        BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
+
         public Form4()
         {
             InitializeComponent();
@@ -28,7 +32,7 @@ namespace InventorySystem_Frank_Bishop
             partsAssociatedGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
-        BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
+        //BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
 
 
         private void button3_Click(object sender, EventArgs e)

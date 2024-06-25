@@ -74,9 +74,9 @@ namespace InventorySystem_Frank_Bishop
         private void button5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            string productIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
-            int productID = int.Parse(productIDString);
-            Form5 modifyProduct = new Form5(productID);
+            Product modify = (Product)productsGrid.CurrentRow.DataBoundItem;
+            int modifyID = modify.ProductID;
+            Form5 modifyProduct = new Form5(modifyID);
             modifyProduct.Show();
         }
 

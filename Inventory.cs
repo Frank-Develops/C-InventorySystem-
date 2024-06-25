@@ -60,7 +60,7 @@ namespace InventorySystem_Frank_Bishop
                 Price = 70.67M,
                 InStock = 4,
                 Min = 1,
-                Max = 3,
+                Max = 3
              
 
             });
