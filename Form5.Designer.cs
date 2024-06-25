@@ -76,7 +76,6 @@
             label1.Size = new Size(117, 21);
             label1.TabIndex = 0;
             label1.Text = "Modify Product";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -147,6 +146,7 @@
             button1.TabIndex = 7;
             button1.Text = "Save";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 

@@ -22,7 +22,7 @@ namespace InventorySystem_Frank_Bishop
             Product productModify;
 
             partsProductGridM.DataSource = Inventory.AllParts;
-            partsAssociatedGridM.DataSource = Product.partsAssociated;
+            partsAssociatedGridM.DataSource = partsAssociatedAdd;
 
             partsAssociatedGridM.ReadOnly = true;
             partsProductGridM.ReadOnly = true;
@@ -45,16 +45,17 @@ namespace InventorySystem_Frank_Bishop
                     textBox5.Text = productModify.Price.ToString();
                     textBox6.Text = productModify.Max.ToString();
                     textBox7.Text = productModify.Min.ToString();
-                    foreach (Part pa in partsAssociatedAdd)
+                    
+                    foreach (Part pa in productModify.partsAssociated) 
                     {
-                        productModify.addAssociatedPart(pa);
+                        //productModify.addAssociatedPart(pa);
                         partsAssociatedAdd.Add(pa);
                     }
 
                 }
             }
 
-           
+
         }
 
 
@@ -65,16 +66,18 @@ namespace InventorySystem_Frank_Bishop
             partsAssociatedAdd.Add(associatedPart);
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void button4_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //this is where to put modify product function 
         }
     }
 }
