@@ -19,7 +19,7 @@ namespace InventorySystem_Frank_Bishop
             InitializeComponent();
         }
 
-        bool checkedRadio = true;
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -59,7 +59,7 @@ namespace InventorySystem_Frank_Bishop
                 MessageBox.Show("min must be smaller than max");
                 return;
             }
-            if (checkedRadio == true)
+            if (radioButton1.Checked)
             {
                 string machineID = textBox5.Text;
                 int machineIDnum = int.Parse(machineID);
@@ -71,7 +71,8 @@ namespace InventorySystem_Frank_Bishop
             }
             else
             {
-                string companyName = textBox5.Text;
+                
+                string companyName = textBox8.Text;
                 Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
                 Inventory.addPart(newPart);
                 this.Hide();
@@ -83,7 +84,7 @@ namespace InventorySystem_Frank_Bishop
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            checkedRadio = false;
+         
             textBox5.Hide();
             textBox8.Show();
             label8.Text = "Company Name";
@@ -91,7 +92,7 @@ namespace InventorySystem_Frank_Bishop
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-            checkedRadio = true;
+       
             textBox5.Show();
             textBox8.Hide();
             label8.Text = "Machine ID";
