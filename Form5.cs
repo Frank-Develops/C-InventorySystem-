@@ -22,9 +22,6 @@ namespace InventorySystem_Frank_Bishop
             InitializeComponent();
 
 
-
-            //Product productModify;
-
             partsProductGridM.DataSource = Inventory.AllParts;
             partsAssociatedGridM.DataSource = partsAssociatedAdd;
 
@@ -52,7 +49,6 @@ namespace InventorySystem_Frank_Bishop
 
                     foreach (Part pa in productModify.partsAssociated)
                     {
-                        //productModify.addAssociatedPart(pa);
                         partsAssociatedAdd.Add(pa);
                     }
 
@@ -67,7 +63,9 @@ namespace InventorySystem_Frank_Bishop
         private void button3_Click(object sender, EventArgs e)
         {
             Part associatedPart = (Part)partsProductGridM.CurrentRow.DataBoundItem;
-            partsAssociatedAdd.Add(associatedPart);
+            int lookUp = associatedPart.PartID;
+            Part addedPart = productModify.lookupAssociatedPart(lookUp);
+            partsAssociatedAdd.Add(addedPart);
         }
 
 
@@ -90,6 +88,15 @@ namespace InventorySystem_Frank_Bishop
             int minNum = int.Parse(textBox7.Text);
 
             Product modifyProduct = new Product(productID, productName, price, inventory, minNum, maxNum);
+            foreach (Product p in Inventory.Products)
+            {
+
+                if (p.ProductID == productID)
+                {
+                    productIndex = Inventory.Products.IndexOf(p);
+                }
+            }
+
             foreach (Part pa in partsAssociatedAdd)
             {
                 modifyProduct.partsAssociated.Add(pa);
@@ -104,21 +111,15 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string partIDString = partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString();
-            int partID = int.Parse(partIDString);
-            productModify.removeAssociatedPart(partID);
-            //foreach (Part p in productModify.partsAssociated)
-            //{
-            //    if (p.PartID == partID)
-            //    {
-            //        int removeIndex = productModify.partsAssociated.IndexOf(p);
-            //        productModify.removeAssociatedPart(removeIndex);
-            //        partsAssociatedGridM.Update();
-            //        partsAssociatedGridM.Refresh();
-                  
-            //    }
-            //}
-            
+        
+
+            foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
+            {
+                partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
+                productModify.removeAssociatedPart(0);
+            }
+
+
 
 
         }

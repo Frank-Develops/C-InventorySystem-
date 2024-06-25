@@ -36,15 +36,26 @@ namespace InventorySystem_Frank_Bishop
         }
         public bool removeAssociatedPart(int i)
         {
-                
-            
-                 partsAssociated.RemoveAt(i);
-                 return true;     
+
+            if (i == 0)
+            {
+                return true;
+
+            }
+            return false;
         }
 
-        //public Part lookupAssociatedPart(int i)
-        //{
+        public Part lookupAssociatedPart(int i)
+        {
+            foreach (Part p in Inventory.AllParts)
+            {
+                if(p.PartID == i) {
+                    return p;
+                }
+            }
+            Part noPart = null;
+            return noPart;
 
-        //}
+        }
     }
 }

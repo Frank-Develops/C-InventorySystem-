@@ -27,7 +27,7 @@ namespace InventorySystem_Frank_Bishop
             partsProductGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             partsAssociatedGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
-        
+
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
 
 
@@ -42,11 +42,11 @@ namespace InventorySystem_Frank_Bishop
             //    if (p.ProductID == productID)
             //    {
             //        toAddPart = p;
-                    
+
             //    }
             //}
 
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -73,6 +73,16 @@ namespace InventorySystem_Frank_Bishop
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+                foreach (DataGridViewRow partsRow in partsAssociatedGrid.SelectedRows)
+                {
+                    partsAssociatedGrid.Rows.RemoveAt(partsRow.Index);
+                }
+            
         }
     }
 }
