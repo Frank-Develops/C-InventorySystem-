@@ -11,6 +11,8 @@ namespace InventorySystem_Frank_Bishop
     {
         public BindingList<Part> AssociatedParts= new BindingList<Part>();
         public int ProductID { get; set; }
+
+        public static int productIDNum = 4;
         public String Name { get; set; }
         public decimal Price { get; set; }
         public int InStock { get; set; }

@@ -119,8 +119,10 @@
             textBox1.Location = new Point(363, 98);
             textBox1.MinimumSize = new Size(1, 1);
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(224, 23);
             textBox1.TabIndex = 10;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // textBox2
             // 

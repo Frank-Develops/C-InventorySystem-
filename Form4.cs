@@ -25,6 +25,7 @@ namespace InventorySystem_Frank_Bishop
             partsAssociatedGrid.AllowUserToAddRows = false;
             partsProductGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             partsAssociatedGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            textBox2.Text = Product.productIDNum.ToString();
         }
 
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
@@ -67,7 +68,7 @@ namespace InventorySystem_Frank_Bishop
                 return;
             }
 
-            productID = int.Parse(textBox2.Text);
+            productID = Product.productIDNum++;
             string name = textBox3.Text;
             price = decimal.Parse(textBox5.Text);
             inventory = int.Parse(textBox4.Text);
