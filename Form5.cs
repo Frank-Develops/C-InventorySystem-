@@ -22,9 +22,6 @@ namespace InventorySystem_Frank_Bishop
             InitializeComponent();
 
 
-
-            //Product productModify;
-
             partsProductGridM.DataSource = Inventory.AllParts;
             partsAssociatedGridM.DataSource = partsAssociatedAdd;
 
@@ -52,7 +49,6 @@ namespace InventorySystem_Frank_Bishop
 
                     foreach (Part pa in productModify.partsAssociated)
                     {
-                        //productModify.addAssociatedPart(pa);
                         partsAssociatedAdd.Add(pa);
                     }
 
@@ -115,7 +111,17 @@ namespace InventorySystem_Frank_Bishop
         {
             string partIDString = partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString();
             int partID = int.Parse(partIDString);
-            productModify.removeAssociatedPart(partID);
+            int partIDRemoveIndex = 0;
+            foreach (Part pa in productModify.partsAssociated)
+            {
+                if (pa.PartID == partID)
+                {
+                    partIDRemoveIndex = productModify.partsAssociated.IndexOf(pa);
+                }
+
+            }
+            
+            productModify.removeAssociatedPart(partIDRemoveIndex);
            
 
 

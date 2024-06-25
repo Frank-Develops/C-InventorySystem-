@@ -87,13 +87,11 @@ namespace InventorySystem_Frank_Bishop
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(partsGrid.SelectedRows[0].Cells[2].Value.ToString());
             string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
             int partID = int.Parse(partIDString);
             string partName = partsGrid.SelectedRows[0].Cells[1].Value.ToString();
             string inventory = partsGrid.SelectedRows[0].Cells[3].Value.ToString();
             int inventoryNum = int.Parse(inventory);
-            //string partPrice = partsGrid.SelectedRows[0].Cells[3].Value.ToString();
             decimal price = Convert.ToDecimal(partsGrid.SelectedRows[0].Cells[2].Value.ToString());
             string minP = partsGrid.SelectedRows[0].Cells[4].Value.ToString();
             int minPNum = int.Parse(minP);
