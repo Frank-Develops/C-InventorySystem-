@@ -70,29 +70,80 @@ namespace InventorySystem_Frank_Bishop
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (radioButton1.Checked)
+            int partID;
+            decimal price;
+            int inventory;
+            int max;
+            int min;
+
+            try
+            {
+                partID = int.Parse(textBox1.Text);
+                price = decimal.Parse(textBox4.Text);
+                inventory = int.Parse(textBox3.Text);
+                max = int.Parse(textBox6.Text);
+                min = int.Parse(textBox7.Text);
+            }
+            catch
             {
 
-                Part modifiedPart = new Inhouse(
-
-                    int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), int.Parse(textBox5.Text)
-
-                    );
-                Inventory.updatePart(partIndex, modifiedPart);
+                MessageBox.Show("Part ID, Price, Inventory, Max and Min must all be numbers");
+            }
+            partID = int.Parse(textBox1.Text);
+            string name = textBox2.Text;
+            price = decimal.Parse(textBox4.Text);
+            inventory = int.Parse(textBox3.Text);
+            max = int.Parse(textBox6.Text);
+            min = int.Parse(textBox7.Text);
+            if (min > max)
+            {
+                MessageBox.Show("min must be smaller than max");
+                return;
+            }
+            if (radioButton1.Checked)
+            {
+                string machineID = textBox5.Text;
+                int machineIDnum = int.Parse(machineID);
+                Part newPart = new Inhouse(partID, name, price, inventory, min, max, machineIDnum);
+                Inventory.addPart(newPart);
+                this.Hide();
+                Form1 mainForm = new Form1();
+                mainForm.Show();
             }
             else
             {
-                Part modifiedPart = new Outsourced(
 
-                    int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), textBox5.Text
+                string companyName = textBox5.Text;
+                Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
+                Inventory.addPart(newPart);
+                this.Hide();
+                Form1 mainForm = new Form1();
+                mainForm.Show();
+            }
 
-                    );
-                Inventory.updatePart(partIndex, modifiedPart);
-            };
+            //if (radioButton1.Checked)
+            //{
 
-            this.Hide();
-            Form1 mainForm = new Form1();
-            mainForm.Show();
+            //    Part modifiedPart = new Inhouse(
+
+            //        int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), int.Parse(textBox5.Text)
+
+            //        );
+            //    Inventory.updatePart(partIndex, modifiedPart);
+            //}
+            //else
+            //{
+            //    Part modifiedPart = new Outsourced(
+
+            //        int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), textBox5.Text
+
+            //        );
+            //    Inventory.updatePart(partIndex, modifiedPart);
+            //};
+
+            //this.Hide();
+            //Form1 mainForm = new Form1();
+            //mainForm.Show();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
