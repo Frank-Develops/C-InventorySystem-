@@ -64,6 +64,7 @@ namespace InventorySystem_Frank_Bishop
             } catch
             {
                 MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
+                return;
             }
 
             productID = int.Parse(textBox2.Text);
@@ -76,6 +77,11 @@ namespace InventorySystem_Frank_Bishop
             if (min > max)
             {
                 MessageBox.Show("min must be smaller than max");
+                return;
+            }
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show("Inventory number must be between min and max");
                 return;
             }
             Product addedProduct = new Product(productID, name, price, inventory, min, max);

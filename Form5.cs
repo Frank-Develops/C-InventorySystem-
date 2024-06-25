@@ -48,7 +48,7 @@ namespace InventorySystem_Frank_Bishop
                     textBox6.Text = productModify.Max.ToString();
                     textBox7.Text = productModify.Min.ToString();
 
-                    foreach (Part pa in productModify.partsAssociated)
+                    foreach (Part pa in productModify.AssociatedParts)
                     {
                         partsAssociatedAdd.Add(pa);
                     }
@@ -99,6 +99,7 @@ namespace InventorySystem_Frank_Bishop
             catch
             {
                 MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
+                return;
             }
             
             productID = int.Parse(textBox2.Text);
@@ -114,6 +115,12 @@ namespace InventorySystem_Frank_Bishop
                 return;
             }
 
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show("Inventory number must be between min and max");
+                return;
+            }
+
             Product modifyProduct = new Product(productID, productName, price, inventory, min, max);
             foreach (Product p in Inventory.Products)
             {
@@ -126,7 +133,7 @@ namespace InventorySystem_Frank_Bishop
 
             foreach (Part pa in partsAssociatedAdd)
             {
-                modifyProduct.partsAssociated.Add(pa);
+                modifyProduct.AssociatedParts.Add(pa);
             }
             Inventory.updateProduct(productIndex, modifyProduct);
             this.Hide();

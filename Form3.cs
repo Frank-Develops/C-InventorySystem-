@@ -88,6 +88,7 @@ namespace InventorySystem_Frank_Bishop
             {
 
                 MessageBox.Show("Part ID, Price, Inventory, Max and Min must all be numbers");
+                return;
             }
             partID = int.Parse(textBox1.Text);
             string name = textBox2.Text;
@@ -100,6 +101,13 @@ namespace InventorySystem_Frank_Bishop
                 MessageBox.Show("min must be smaller than max");
                 return;
             }
+
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show("Inventory number must be between min and max");
+                return;
+            }
+
             if (radioButton1.Checked)
             {
                 string machineID = textBox5.Text;

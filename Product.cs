@@ -9,7 +9,7 @@ namespace InventorySystem_Frank_Bishop
 {
     internal class Product
     {
-        public BindingList<Part> partsAssociated= new BindingList<Part>();
+        public BindingList<Part> AssociatedParts= new BindingList<Part>();
         public int ProductID { get; set; }
         public String Name { get; set; }
         public decimal Price { get; set; }
@@ -18,8 +18,8 @@ namespace InventorySystem_Frank_Bishop
         public int Max { get; set; }
         public void addAssociatedPart(Part p)
         {
-                
-            partsAssociated.Add(p);
+
+            AssociatedParts.Add(p);
         }
 
         public Product() { }
