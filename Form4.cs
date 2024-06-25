@@ -47,12 +47,37 @@ namespace InventorySystem_Frank_Bishop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int productID = int.Parse(textBox2.Text);
+            int productID;
+            decimal price;
+            int inventory;
+            int max;
+            int min;
+
+            try
+            {
+                productID = int.Parse(textBox2.Text);
+              
+                price = decimal.Parse(textBox5.Text);
+                inventory = int.Parse(textBox4.Text);
+                max = int.Parse(textBox6.Text);
+                min = int.Parse(textBox7.Text);
+            } catch
+            {
+                MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
+            }
+
+            productID = int.Parse(textBox2.Text);
             string name = textBox3.Text;
-            decimal price = decimal.Parse(textBox5.Text);
-            int inventory = int.Parse(textBox4.Text);
-            int max = int.Parse(textBox6.Text);
-            int min = int.Parse(textBox7.Text);
+            price = decimal.Parse(textBox5.Text);
+            inventory = int.Parse(textBox4.Text);
+            max = int.Parse(textBox6.Text);
+            min = int.Parse(textBox7.Text);
+
+            if (min > max)
+            {
+                MessageBox.Show("min must be smaller than max");
+                return;
+            }
             Product addedProduct = new Product(productID, name, price, inventory, min, max);
             Inventory.addProduct(addedProduct);
             foreach (Part p in partsAssociatedAdd)
