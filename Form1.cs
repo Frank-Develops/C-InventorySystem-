@@ -1,4 +1,5 @@
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -87,9 +88,10 @@ namespace InventorySystem_Frank_Bishop
 
         private void button3_Click(object sender, EventArgs e)
         {
-            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this part?","Confirm", MessageBoxButtons.YesNo);
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
             {
+
                 string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
                 int partID = int.Parse(partIDString);
                 string partName = partsGrid.SelectedRows[0].Cells[1].Value.ToString();
@@ -102,10 +104,20 @@ namespace InventorySystem_Frank_Bishop
                 int maxPNum = int.Parse(maxP);
 
                 Part deletePart = new Part(partID, partName, price, inventoryNum, minPNum, maxPNum);
+                foreach (Product pr in Inventory.Products)
+                {
+                    foreach (Part pa in pr.AssociatedParts)
+                        if (pa.PartID == partID)
+                        {
+                            MessageBox.Show("cannot delete part since it is associated with a product");
+                            return;
+                        }
+                }
                 Inventory.deletePart(deletePart);
                 partsGrid.Update();
                 partsGrid.Refresh();
-            } else
+            }
+            else
             {
                 return;
             }
@@ -120,8 +132,10 @@ namespace InventorySystem_Frank_Bishop
                 string productIDString = productsGrid.SelectedRows[0].Cells[0].Value.ToString();
                 int productID = int.Parse(productIDString);
                 Inventory.removeProduct(productID);
-            } else { 
-                return; 
+            }
+            else
+            {
+                return;
             }
         }
 

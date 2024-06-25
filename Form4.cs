@@ -25,6 +25,7 @@ namespace InventorySystem_Frank_Bishop
             partsAssociatedGrid.AllowUserToAddRows = false;
             partsProductGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             partsAssociatedGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            textBox2.Text = Product.productIDNum.ToString();
         }
 
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
@@ -64,9 +65,10 @@ namespace InventorySystem_Frank_Bishop
             } catch
             {
                 MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
+                return;
             }
 
-            productID = int.Parse(textBox2.Text);
+            productID = Product.productIDNum++;
             string name = textBox3.Text;
             price = decimal.Parse(textBox5.Text);
             inventory = int.Parse(textBox4.Text);
@@ -76,6 +78,11 @@ namespace InventorySystem_Frank_Bishop
             if (min > max)
             {
                 MessageBox.Show("min must be smaller than max");
+                return;
+            }
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show("Inventory number must be between min and max");
                 return;
             }
             Product addedProduct = new Product(productID, name, price, inventory, min, max);

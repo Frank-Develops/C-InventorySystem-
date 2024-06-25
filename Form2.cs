@@ -17,9 +17,10 @@ namespace InventorySystem_Frank_Bishop
         public Form2()
         {
             InitializeComponent();
+            textBox1.Text = Part.partIDNum.ToString();
         }
 
-        
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -44,9 +45,12 @@ namespace InventorySystem_Frank_Bishop
                 inventory = int.Parse(textBox3.Text);
                 max = int.Parse(textBox6.Text);
                 min = int.Parse(textBox7.Text);
-            } catch {
+            }
+            catch
+            {
 
                 MessageBox.Show("Part ID, Price, Inventory, Max and Min must all be numbers");
+                return;
             }
             partID = int.Parse(textBox1.Text);
             string name = textBox2.Text;
@@ -59,10 +63,18 @@ namespace InventorySystem_Frank_Bishop
                 MessageBox.Show("min must be smaller than max");
                 return;
             }
+
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show("Inventory number must be between min and max");
+                return;
+            }
+
             if (radioButton1.Checked)
             {
                 string machineID = textBox5.Text;
                 int machineIDnum = int.Parse(machineID);
+                partID = Part.partIDNum++;
                 Part newPart = new Inhouse(partID, name, price, inventory, min, max, machineIDnum);
                 Inventory.addPart(newPart);
                 this.Hide();
@@ -71,7 +83,7 @@ namespace InventorySystem_Frank_Bishop
             }
             else
             {
-                
+
                 string companyName = textBox8.Text;
                 Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
                 Inventory.addPart(newPart);
@@ -84,7 +96,7 @@ namespace InventorySystem_Frank_Bishop
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-         
+
             textBox5.Hide();
             textBox8.Show();
             label8.Text = "Company Name";
@@ -92,10 +104,15 @@ namespace InventorySystem_Frank_Bishop
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
-       
+
             textBox5.Show();
             textBox8.Hide();
             label8.Text = "Machine ID";
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
