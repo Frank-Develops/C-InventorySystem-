@@ -39,11 +39,9 @@ namespace InventorySystem_Frank_Bishop
                 
             
                  partsAssociated.RemoveAt(i);
-                 return true;
-                
-
-           
+                 return true;     
         }
+
         //public Part lookupAssociatedPart(int i)
         //{
 

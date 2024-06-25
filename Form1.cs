@@ -31,20 +31,20 @@ namespace InventorySystem_Frank_Bishop
         {
             int search = int.Parse(textBox1.Text);
             Part searchPart = Inventory.lookupPart(search);
-                
+
             foreach (DataGridViewRow partRow in partsGrid.Rows)
             {
-                
+
                 string partIDString = partRow.Cells[0].Value.ToString();
                 int partID = int.Parse(partIDString);
-               
+
 
                 if (partID == searchPart.PartID)
                 {
                     partRow.Selected = true;
-                        
+
                     break;
-                } 
+                }
             }
         }
 
@@ -111,6 +111,31 @@ namespace InventorySystem_Frank_Bishop
             string productIDString = productsGrid.SelectedRows[0].Cells[0].Value.ToString();
             int productID = int.Parse(productIDString);
             Inventory.removeProduct(productID);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            int search = int.Parse(textBox2.Text);
+            Product searchProduct = Inventory.lookupProduct(search);
+
+            foreach (DataGridViewRow productRow in productsGrid.Rows)
+            {
+
+                string productIDString = productRow.Cells[0].Value.ToString();
+                int productID = int.Parse(productIDString);
+
+
+                if (productID == searchProduct.ProductID)
+                {
+                    productRow.Selected = true;
+
+                    break;
+                }
+            }
+
+
+
+
         }
     }
 }

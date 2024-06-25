@@ -66,6 +66,17 @@ namespace InventorySystem_Frank_Bishop
 
             Products.Add(new Product()
             {
+                ProductID = 2,
+                Name = "Product 3",
+                Price = 70.67M,
+                InStock = 4,
+                Min = 1,
+                Max = 3
+
+            });
+
+            Products.Add(new Product()
+            {
                 ProductID = 1,
                 Name = "Product 5",
                 Price = 80.67M,
@@ -95,10 +106,20 @@ namespace InventorySystem_Frank_Bishop
             return true;
         }
 
-        //public Product lookupProduct(int i)
-        //{
+        public static Product lookupProduct(int i)
+        {
+            foreach (Product p in Inventory.Products)
+            {
+                if (p.ProductID == i)
+                {
 
-        //}
+                    return p;
+                }
+            }
+
+            Product noProduct = null;
+            return noProduct;
+        }
 
         public static void updateProduct(int i, Product p)
         {

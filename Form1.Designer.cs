@@ -154,6 +154,7 @@
             button9.TabIndex = 8;
             button9.Text = "Search";
             button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
             // 
             // textBox1
             // 
@@ -168,6 +169,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(207, 23);
             textBox2.TabIndex = 12;
+            
             // 
             // label1
             // 
