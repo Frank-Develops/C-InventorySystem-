@@ -42,6 +42,17 @@ namespace InventorySystem_Frank_Bishop
                 CompanyName = "The Test"
             });
 
+            AllParts.Add(new Outsourced()
+            {
+                PartID = 3,
+                Name = "Part 3",
+                Price = 40.67M,
+                InStock = 5,
+                Min = 1,
+                Max = 6,
+                CompanyName = "The Test"
+            });
+
             Products.Add(new Product()
             {
                 ProductID = 3,
@@ -110,28 +121,44 @@ namespace InventorySystem_Frank_Bishop
                     int remove = Inventory.AllParts.IndexOf(pa);
                     remove = Math.Abs(remove);
                     Inventory.AllParts.RemoveAt(remove);
-                    
+
                     return true;
                 }
-               
 
-                    
-                
+
+
+
             }
             return false;
 
-            //public Part lookupPart(int i)
-            //{
-
-            //}
         }
+            public static Part lookupPart(int i)
+            {
+                foreach(Part p in Inventory.AllParts)
+                {
+                if (p.PartID == i)
+                {
+
+                    return p;
+                }
+                }
+              
+                Part noPart = null;
+                return noPart;
+                
+            
+            }
+
         static public void updatePart(int i, Part p)
         {
             AllParts[i] = p;
         }
+    }
+        
+        
         }
 
- }
+ 
     
 
 

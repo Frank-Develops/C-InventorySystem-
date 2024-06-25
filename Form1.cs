@@ -29,7 +29,23 @@ namespace InventorySystem_Frank_Bishop
 
         private void button8_Click(object sender, EventArgs e)
         {
+            int search = int.Parse(textBox1.Text);
+            Part searchPart = Inventory.lookupPart(search);
+                
+            foreach (DataGridViewRow partRow in partsGrid.Rows)
+            {
+                
+                string partIDString = partRow.Cells[0].Value.ToString();
+                int partID = int.Parse(partIDString);
+               
 
+                if (partID == searchPart.PartID)
+                {
+                    partRow.Selected = true;
+                        
+                    break;
+                } 
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
