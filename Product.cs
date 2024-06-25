@@ -37,7 +37,16 @@ namespace InventorySystem_Frank_Bishop
         public bool removeAssociatedPart(int i)
         {
                 
-                 partsAssociated.RemoveAt(i);
+            foreach(Part pa in partsAssociated)
+            {
+
+                if (pa.PartID == i)
+                {
+                    partsAssociated.Remove(pa);
+                }
+            } 
+
+                 
                  return true;     
         }
 

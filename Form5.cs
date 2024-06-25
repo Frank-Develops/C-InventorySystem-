@@ -109,20 +109,13 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string partIDString = partsAssociatedGridM.SelectedRows[0].Cells[0].Value.ToString();
-            int partID = int.Parse(partIDString);
-            int partIDRemoveIndex = 0;
-            foreach (Part pa in productModify.partsAssociated)
-            {
-                if (pa.PartID == partID)
-                {
-                    partIDRemoveIndex = productModify.partsAssociated.IndexOf(pa);
-                }
+        
 
+            foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
+            {
+                partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
             }
-            
-            productModify.removeAssociatedPart(partIDRemoveIndex);
-           
+
 
 
         }
