@@ -87,28 +87,42 @@ namespace InventorySystem_Frank_Bishop
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
-            int partID = int.Parse(partIDString);
-            string partName = partsGrid.SelectedRows[0].Cells[1].Value.ToString();
-            string inventory = partsGrid.SelectedRows[0].Cells[3].Value.ToString();
-            int inventoryNum = int.Parse(inventory);
-            decimal price = Convert.ToDecimal(partsGrid.SelectedRows[0].Cells[2].Value.ToString());
-            string minP = partsGrid.SelectedRows[0].Cells[4].Value.ToString();
-            int minPNum = int.Parse(minP);
-            string maxP = partsGrid.SelectedRows[0].Cells[5].Value.ToString();
-            int maxPNum = int.Parse(maxP);
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this part?","Confirm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
+                int partID = int.Parse(partIDString);
+                string partName = partsGrid.SelectedRows[0].Cells[1].Value.ToString();
+                string inventory = partsGrid.SelectedRows[0].Cells[3].Value.ToString();
+                int inventoryNum = int.Parse(inventory);
+                decimal price = Convert.ToDecimal(partsGrid.SelectedRows[0].Cells[2].Value.ToString());
+                string minP = partsGrid.SelectedRows[0].Cells[4].Value.ToString();
+                int minPNum = int.Parse(minP);
+                string maxP = partsGrid.SelectedRows[0].Cells[5].Value.ToString();
+                int maxPNum = int.Parse(maxP);
 
-            Part deletePart = new Part(partID, partName, price, inventoryNum, minPNum, maxPNum);
-            Inventory.deletePart(deletePart);
-            partsGrid.Update();
-            partsGrid.Refresh();
+                Part deletePart = new Part(partID, partName, price, inventoryNum, minPNum, maxPNum);
+                Inventory.deletePart(deletePart);
+                partsGrid.Update();
+                partsGrid.Refresh();
+            } else
+            {
+                return;
+            }
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            string productIDString = productsGrid.SelectedRows[0].Cells[0].Value.ToString();
-            int productID = int.Parse(productIDString);
-            Inventory.removeProduct(productID);
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+
+                string productIDString = productsGrid.SelectedRows[0].Cells[0].Value.ToString();
+                int productID = int.Parse(productIDString);
+                Inventory.removeProduct(productID);
+            } else { 
+                return; 
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)

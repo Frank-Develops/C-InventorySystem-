@@ -16,7 +16,6 @@ namespace InventorySystem_Frank_Bishop
         {
             InitializeComponent();
             partsProductGrid.DataSource = Inventory.AllParts;
-            //partsAssociatedGrid.DataSource = Product.partsAssociated;
             partsAssociatedGrid.DataSource = partsAssociatedAdd;
             partsProductGrid.ReadOnly = true;
             partsAssociatedGrid.ReadOnly = true;
@@ -33,19 +32,9 @@ namespace InventorySystem_Frank_Bishop
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //int productID = int.Parse(textBox2.Text);
-            //Product toAddPart;
+           
             Part associatedPart = (Part)partsProductGrid.CurrentRow.DataBoundItem;
             partsAssociatedAdd.Add(associatedPart);
-            //foreach (Product p in Inventory.Products)
-            //{
-            //    if (p.ProductID == productID)
-            //    {
-            //        toAddPart = p;
-
-            //    }
-            //}
-
 
         }
 
@@ -58,12 +47,37 @@ namespace InventorySystem_Frank_Bishop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int productID = int.Parse(textBox2.Text);
+            int productID;
+            decimal price;
+            int inventory;
+            int max;
+            int min;
+
+            try
+            {
+                productID = int.Parse(textBox2.Text);
+              
+                price = decimal.Parse(textBox5.Text);
+                inventory = int.Parse(textBox4.Text);
+                max = int.Parse(textBox6.Text);
+                min = int.Parse(textBox7.Text);
+            } catch
+            {
+                MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
+            }
+
+            productID = int.Parse(textBox2.Text);
             string name = textBox3.Text;
-            decimal price = decimal.Parse(textBox5.Text);
-            int inventory = int.Parse(textBox4.Text);
-            int max = int.Parse(textBox6.Text);
-            int min = int.Parse(textBox7.Text);
+            price = decimal.Parse(textBox5.Text);
+            inventory = int.Parse(textBox4.Text);
+            max = int.Parse(textBox6.Text);
+            min = int.Parse(textBox7.Text);
+
+            if (min > max)
+            {
+                MessageBox.Show("min must be smaller than max");
+                return;
+            }
             Product addedProduct = new Product(productID, name, price, inventory, min, max);
             Inventory.addProduct(addedProduct);
             foreach (Part p in partsAssociatedAdd)
@@ -77,12 +91,17 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
                 foreach (DataGridViewRow partsRow in partsAssociatedGrid.SelectedRows)
                 {
                     partsAssociatedGrid.Rows.RemoveAt(partsRow.Index);
                 }
-            
+            } else
+            {
+                return;
+            }
         }
     }
 }

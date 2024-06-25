@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -80,14 +81,40 @@ namespace InventorySystem_Frank_Bishop
         private void button1_Click(object sender, EventArgs e)
 
         {
-            int productID = int.Parse(textBox2.Text);
-            string productName = textBox3.Text;
-            int inventory = int.Parse(textBox4.Text);
-            decimal price = decimal.Parse(textBox5.Text);
-            int maxNum = int.Parse(textBox6.Text);
-            int minNum = int.Parse(textBox7.Text);
+            int productID;
+            decimal price;
+            int inventory;
+            int max;
+            int min;
 
-            Product modifyProduct = new Product(productID, productName, price, inventory, minNum, maxNum);
+            try
+            {
+                productID = int.Parse(textBox2.Text);
+
+                price = decimal.Parse(textBox5.Text);
+                inventory = int.Parse(textBox4.Text);
+                max = int.Parse(textBox6.Text);
+                min = int.Parse(textBox7.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
+            }
+            
+            productID = int.Parse(textBox2.Text);
+            string productName = textBox3.Text;
+            inventory = int.Parse(textBox4.Text);
+            price = decimal.Parse(textBox5.Text);
+            max = int.Parse(textBox6.Text);
+            min = int.Parse(textBox7.Text);
+
+            if (min > max)
+            {
+                MessageBox.Show("min must be smaller than max");
+                return;
+            }
+
+            Product modifyProduct = new Product(productID, productName, price, inventory, min, max);
             foreach (Product p in Inventory.Products)
             {
 
@@ -111,12 +138,18 @@ namespace InventorySystem_Frank_Bishop
 
         private void button2_Click(object sender, EventArgs e)
         {
-        
-
-            foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
+            DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
             {
-                partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
-                productModify.removeAssociatedPart(0);
+
+                foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
+                {
+                    partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
+                    productModify.removeAssociatedPart(0);
+                }
+            } else
+            {
+                return;
             }
 
 
