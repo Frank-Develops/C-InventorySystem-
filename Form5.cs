@@ -14,20 +14,14 @@ namespace InventorySystem_Frank_Bishop
     public partial class Form5 : Form
     {
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
-        //the problem is how I add the associated parts, since it adds them for all item
-        //I need to make it so they get linked only to the Product, and still populate in the DataGrid
-        //int productIndex = 0;
+        
         Product productModify;
-        //Product productModify = Inventory.lookupProduct(int.Parse(textBox2.Text));
+        
         public Form5(int modify)
         {
             InitializeComponent();
 
-            //partsAssociatedAdd.Clear();
-            //something is happening causing modify product not to get all fields, maybe I need to use lookup product
-            //and populate the fields using that
-            //also company name not saving with Add
-            //associated parts not saving with initial add 
+            
 
             productModify = Inventory.lookupProduct(modify);
 
@@ -37,12 +31,11 @@ namespace InventorySystem_Frank_Bishop
 
             }
 
-            //Product productModify;
+           
 
             partsProductGridM.DataSource = Inventory.AllParts;
             partsAssociatedGridM.DataSource = partsAssociatedAdd;
-            //try this
-            //productModify = Inventory.lookupProduct(productID);
+           
             textBox2.Text = productModify.ProductID.ToString();
             textBox3.Text = productModify.Name.ToString();
             textBox4.Text = productModify.InStock.ToString();
@@ -50,8 +43,7 @@ namespace InventorySystem_Frank_Bishop
             textBox6.Text = productModify.Max.ToString();
             textBox7.Text = productModify.Min.ToString();
 
-            //partsAssociatedGridM.DataSource = productModify.partsAssociated;
-            //maybe add the rows with a foreach
+          
 
 
             partsAssociatedGridM.ReadOnly = true;
@@ -63,27 +55,6 @@ namespace InventorySystem_Frank_Bishop
             partsAssociatedGridM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             partsProductGridM.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //foreach (Product p in Inventory.Products)
-            //{
-            //    if (p.ProductID == productID)
-            //    {
-            //        productModify = p;
-            //        productIndex = Inventory.Products.IndexOf(p);
-            //        textBox2.Text = productModify.ProductID.ToString();
-            //        textBox3.Text = productModify.Name.ToString();
-            //        textBox4.Text = productModify.InStock.ToString();
-            //        textBox5.Text = productModify.Price.ToString();
-            //        textBox6.Text = productModify.Max.ToString();
-            //        textBox7.Text = productModify.Min.ToString();
-
-            //        foreach (Part pa in productModify.partsAssociated)
-            //        {
-            //            //productModify.addAssociatedPart(pa);
-            //            partsAssociatedAdd.Add(pa);
-            //        }
-
-            //    }
-            //}
 
 
         }
@@ -100,7 +71,6 @@ namespace InventorySystem_Frank_Bishop
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //partsAssociatedAdd.Clear();
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
