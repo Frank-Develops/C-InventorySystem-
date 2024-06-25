@@ -60,7 +60,8 @@ namespace InventorySystem_Frank_Bishop
                 Price = 70.67M,
                 InStock = 4,
                 Min = 1,
-                Max = 3
+                Max = 3,
+             
 
             });
 
@@ -108,6 +109,7 @@ namespace InventorySystem_Frank_Bishop
 
         public static Product lookupProduct(int i)
         {
+            
             foreach (Product p in Inventory.Products)
             {
                 if (p.ProductID == i)
@@ -155,6 +157,7 @@ namespace InventorySystem_Frank_Bishop
         }
             public static Part lookupPart(int i)
             {
+           
                 foreach(Part p in Inventory.AllParts)
                 {
                 if (p.PartID == i)

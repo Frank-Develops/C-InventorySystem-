@@ -100,5 +100,14 @@ namespace InventorySystem_Frank_Bishop
                 }
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            int removePart = int.Parse(partsAssociatedGrid.SelectedRows[0].Cells[0].Value.ToString());
+            Part removePartp = Inventory.lookupPart(removePart);
+            partsAssociatedAdd.Remove(removePartp);
+            
+        }
     }
 }
