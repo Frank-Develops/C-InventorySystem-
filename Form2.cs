@@ -8,6 +8,7 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace InventorySystem_Frank_Bishop
 {
@@ -29,33 +30,55 @@ namespace InventorySystem_Frank_Bishop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int partID = int.Parse(textBox1.Text);
+
+            int partID;
+            decimal price;
+            int inventory;
+            int max;
+            int min;
+
+            try
+            {
+                partID = int.Parse(textBox1.Text);
+                price = decimal.Parse(textBox4.Text);
+                inventory = int.Parse(textBox3.Text);
+                max = int.Parse(textBox6.Text);
+                min = int.Parse(textBox7.Text);
+            } catch {
+
+                MessageBox.Show("Part ID, Price, Inventory, Max and Min must all be numbers");
+            }
+            partID = int.Parse(textBox1.Text);
             string name = textBox2.Text;
-            decimal price = decimal.Parse(textBox4.Text);
-            int inventory = int.Parse(textBox3.Text);
-            int max = int.Parse(textBox6.Text);
-            int min = int.Parse(textBox7.Text);
-            
-           
-
-
+            price = decimal.Parse(textBox4.Text);
+            inventory = int.Parse(textBox3.Text);
+            max = int.Parse(textBox6.Text);
+            min = int.Parse(textBox7.Text);
+            if (min > max)
+            {
+                MessageBox.Show("min must be smaller than max");
+                return;
+            }
             if (checkedRadio == true)
             {
                 string machineID = textBox5.Text;
                 int machineIDnum = int.Parse(machineID);
                 Part newPart = new Inhouse(partID, name, price, inventory, min, max, machineIDnum);
                 Inventory.addPart(newPart);
+                this.Hide();
+                Form1 mainForm = new Form1();
+                mainForm.Show();
             }
             else
             {
                 string companyName = textBox5.Text;
                 Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
                 Inventory.addPart(newPart);
+                this.Hide();
+                Form1 mainForm = new Form1();
+                mainForm.Show();
             }
 
-            this.Hide();
-            Form1 mainForm = new Form1();
-            mainForm.Show();
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

@@ -16,7 +16,6 @@ namespace InventorySystem_Frank_Bishop
         {
             InitializeComponent();
             partsProductGrid.DataSource = Inventory.AllParts;
-            //partsAssociatedGrid.DataSource = Product.partsAssociated;
             partsAssociatedGrid.DataSource = partsAssociatedAdd;
             partsProductGrid.ReadOnly = true;
             partsAssociatedGrid.ReadOnly = true;
@@ -33,19 +32,9 @@ namespace InventorySystem_Frank_Bishop
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //int productID = int.Parse(textBox2.Text);
-            //Product toAddPart;
+           
             Part associatedPart = (Part)partsProductGrid.CurrentRow.DataBoundItem;
             partsAssociatedAdd.Add(associatedPart);
-            //foreach (Product p in Inventory.Products)
-            //{
-            //    if (p.ProductID == productID)
-            //    {
-            //        toAddPart = p;
-
-            //    }
-            //}
-
 
         }
 
