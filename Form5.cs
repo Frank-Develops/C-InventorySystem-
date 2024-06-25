@@ -63,7 +63,9 @@ namespace InventorySystem_Frank_Bishop
         private void button3_Click(object sender, EventArgs e)
         {
             Part associatedPart = (Part)partsProductGridM.CurrentRow.DataBoundItem;
-            partsAssociatedAdd.Add(associatedPart);
+            int lookUp = associatedPart.PartID;
+            Part addedPart = productModify.lookupAssociatedPart(lookUp);
+            partsAssociatedAdd.Add(addedPart);
         }
 
 
@@ -114,7 +116,9 @@ namespace InventorySystem_Frank_Bishop
             foreach (DataGridViewRow partsRow in partsAssociatedGridM.SelectedRows)
             {
                 partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
+                productModify.removeAssociatedPart(0);
             }
+
 
 
 
