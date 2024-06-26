@@ -267,7 +267,9 @@
             partsProductGrid.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
             partsProductGrid.Location = new Point(393, 79);
             partsProductGrid.Name = "partsProductGrid";
-            partsProductGrid.Size = new Size(620, 188);
+            partsProductGrid.RowHeadersVisible = false;
+            partsProductGrid.ScrollBars = ScrollBars.Vertical;
+            partsProductGrid.Size = new Size(603, 188);
             partsProductGrid.TabIndex = 23;
             // 
             // partID
@@ -312,7 +314,9 @@
             partsAssociatedGrid.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
             partsAssociatedGrid.Location = new Point(393, 344);
             partsAssociatedGrid.Name = "partsAssociatedGrid";
-            partsAssociatedGrid.Size = new Size(620, 188);
+            partsAssociatedGrid.RowHeadersVisible = false;
+            partsAssociatedGrid.ScrollBars = ScrollBars.Vertical;
+            partsAssociatedGrid.Size = new Size(603, 188);
             partsAssociatedGrid.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn1

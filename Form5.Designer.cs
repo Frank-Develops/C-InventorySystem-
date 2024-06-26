@@ -265,9 +265,11 @@
             // 
             partsProductGridM.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             partsProductGridM.Columns.AddRange(new DataGridViewColumn[] { partID, partName, partInventory, partPrice, partMin, partMax });
-            partsProductGridM.Location = new Point(393, 79);
+            partsProductGridM.Location = new Point(416, 81);
             partsProductGridM.Name = "partsProductGridM";
-            partsProductGridM.Size = new Size(620, 188);
+            partsProductGridM.RowHeadersVisible = false;
+            partsProductGridM.ScrollBars = ScrollBars.Vertical;
+            partsProductGridM.Size = new Size(603, 188);
             partsProductGridM.TabIndex = 23;
             // 
             // partID
@@ -310,9 +312,11 @@
             // 
             partsAssociatedGridM.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             partsAssociatedGridM.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6 });
-            partsAssociatedGridM.Location = new Point(393, 344);
+            partsAssociatedGridM.Location = new Point(416, 344);
             partsAssociatedGridM.Name = "partsAssociatedGridM";
-            partsAssociatedGridM.Size = new Size(620, 188);
+            partsAssociatedGridM.RowHeadersVisible = false;
+            partsAssociatedGridM.ScrollBars = ScrollBars.Vertical;
+            partsAssociatedGridM.Size = new Size(603, 188);
             partsAssociatedGridM.TabIndex = 24;
             // 
             // dataGridViewTextBoxColumn1
