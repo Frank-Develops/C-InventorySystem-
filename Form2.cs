@@ -22,14 +22,14 @@ namespace InventorySystem_Frank_Bishop
 
 
 
-        private void button2_Click(object sender, EventArgs e)
+        private void cancelAddPart_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveAddPart_Click(object sender, EventArgs e)
         {
 
             int partID;
@@ -85,6 +85,7 @@ namespace InventorySystem_Frank_Bishop
             {
 
                 string companyName = textBox8.Text;
+                partID = Part.partIDNum++;
                 Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
                 Inventory.addPart(newPart);
                 this.Hide();
@@ -110,10 +111,7 @@ namespace InventorySystem_Frank_Bishop
             label8.Text = "Machine ID";
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
     }
 }
 

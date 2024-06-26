@@ -12,7 +12,7 @@ namespace InventorySystem_Frank_Bishop
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
-       
+
         }
     }
 }

@@ -31,8 +31,8 @@
             label1 = new Label();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
-            button1 = new Button();
-            button2 = new Button();
+            saveAddPart = new Button();
+            cancelAddPart = new Button();
             textBox5 = new TextBox();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
@@ -86,25 +86,25 @@
             radioButton2.UseVisualStyleBackColor = true;
             radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
-            // button1
+            // saveAddPart
             // 
-            button1.Location = new Point(472, 454);
-            button1.Name = "button1";
-            button1.Size = new Size(95, 75);
-            button1.TabIndex = 3;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            saveAddPart.Location = new Point(472, 454);
+            saveAddPart.Name = "saveAddPart";
+            saveAddPart.Size = new Size(95, 75);
+            saveAddPart.TabIndex = 3;
+            saveAddPart.Text = "Save";
+            saveAddPart.UseVisualStyleBackColor = true;
+            saveAddPart.Click += saveAddPart_Click;
             // 
-            // button2
+            // cancelAddPart
             // 
-            button2.Location = new Point(611, 454);
-            button2.Name = "button2";
-            button2.Size = new Size(95, 75);
-            button2.TabIndex = 4;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            cancelAddPart.Location = new Point(611, 454);
+            cancelAddPart.Name = "cancelAddPart";
+            cancelAddPart.Size = new Size(95, 75);
+            cancelAddPart.TabIndex = 4;
+            cancelAddPart.Text = "Cancel";
+            cancelAddPart.UseVisualStyleBackColor = true;
+            cancelAddPart.Click += cancelAddPart_Click;
             // 
             // textBox5
             // 
@@ -122,7 +122,7 @@
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(224, 23);
             textBox1.TabIndex = 10;
-            textBox1.TextChanged += textBox1_TextChanged;
+            
             // 
             // textBox2
             // 
@@ -264,8 +264,8 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(textBox5);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(cancelAddPart);
+            Controls.Add(saveAddPart);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(label1);
@@ -280,8 +280,8 @@
         private Label label1;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
-        private Button button1;
-        private Button button2;
+        private Button saveAddPart;
+        private Button cancelAddPart;
         private TextBox textBox5;
         private TextBox textBox1;
         private TextBox textBox2;

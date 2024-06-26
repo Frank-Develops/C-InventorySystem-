@@ -9,7 +9,7 @@ namespace InventorySystem_Frank_Bishop
 {
     internal class Product
     {
-        public BindingList<Part> AssociatedParts= new BindingList<Part>();
+        public BindingList<Part> AssociatedParts = new BindingList<Part>();
         public int ProductID { get; set; }
 
         public static int productIDNum = 4;
@@ -18,15 +18,11 @@ namespace InventorySystem_Frank_Bishop
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
-        public void addAssociatedPart(Part p)
-        {
-
-            AssociatedParts.Add(p);
-        }
 
         public Product() { }
 
-        public Product(int productID, String name, decimal price, int inStock, int min, int max) {
+        public Product(int productID, String name, decimal price, int inStock, int min, int max)
+        {
 
             ProductID = productID;
             Name = name;
@@ -35,6 +31,12 @@ namespace InventorySystem_Frank_Bishop
             Min = min;
             Max = max;
 
+        }
+
+        public void addAssociatedPart(Part p)
+        {
+
+            AssociatedParts.Add(p);
         }
         public bool removeAssociatedPart(int i)
         {
@@ -51,7 +53,8 @@ namespace InventorySystem_Frank_Bishop
         {
             foreach (Part p in Inventory.AllParts)
             {
-                if(p.PartID == i) {
+                if (p.PartID == i)
+                {
                     return p;
                 }
             }

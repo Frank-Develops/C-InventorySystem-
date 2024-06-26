@@ -27,7 +27,7 @@ namespace InventorySystem_Frank_Bishop
                 Price = 35.67m,
                 InStock = 10,
                 Min = 1,
-                Max = 2,
+                Max = 20,
                 MachineID = 3
             });
 
@@ -55,12 +55,12 @@ namespace InventorySystem_Frank_Bishop
 
             Products.Add(new Product()
             {
-                ProductID = 3,
+                ProductID = 1,
                 Name = "Product 2",
                 Price = 70.67M,
                 InStock = 4,
                 Min = 1,
-                Max = 3
+                Max = 5
 
             });
 
@@ -71,18 +71,18 @@ namespace InventorySystem_Frank_Bishop
                 Price = 70.67M,
                 InStock = 4,
                 Min = 1,
-                Max = 3
+                Max = 5
 
             });
 
             Products.Add(new Product()
             {
-                ProductID = 1,
+                ProductID = 3,
                 Name = "Product 5",
                 Price = 80.67M,
                 InStock = 9,
                 Min = 1,
-                Max = 3
+                Max = 10
 
             });
 
@@ -95,7 +95,8 @@ namespace InventorySystem_Frank_Bishop
         {
             foreach (Product p in Products)
             {
-                if (p.ProductID == i) {
+                if (p.ProductID == i)
+                {
                     int remove = Inventory.Products.IndexOf(p);
                     remove = Math.Abs(remove);
                     Inventory.Products.RemoveAt(remove);
@@ -126,8 +127,9 @@ namespace InventorySystem_Frank_Bishop
             Inventory.Products[i] = p;
         }
 
-        public static void addPart(Part p) {
-        
+        public static void addPart(Part p)
+        {
+
             AllParts.Add(p);
 
         }
@@ -153,33 +155,33 @@ namespace InventorySystem_Frank_Bishop
             return false;
 
         }
-            public static Part lookupPart(int i)
+        public static Part lookupPart(int i)
+        {
+            foreach (Part p in Inventory.AllParts)
             {
-                foreach(Part p in Inventory.AllParts)
-                {
                 if (p.PartID == i)
                 {
 
                     return p;
                 }
-                }
-              
-                Part noPart = null;
-                return noPart;
-                
-            
             }
+
+            Part noPart = null;
+            return noPart;
+
+
+        }
 
         static public void updatePart(int i, Part p)
         {
             AllParts[i] = p;
         }
     }
-        
-        
-        }
 
- 
-    
+
+}
+
+
+
 
 

@@ -34,15 +34,15 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button1 = new Button();
-            button5 = new Button();
-            button6 = new Button();
+            modifyPart = new Button();
+            deletePart = new Button();
+            addProduct = new Button();
+            addPart = new Button();
+            modifyProduct = new Button();
+            deleteProduct = new Button();
             button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
+            searchButton = new Button();
+            searchButton2 = new Button();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             label1 = new Label();
@@ -66,65 +66,65 @@
             ((System.ComponentModel.ISupportInitialize)productsGrid).BeginInit();
             SuspendLayout();
             // 
-            // button2
+            // modifyPart
             // 
-            button2.Location = new Point(360, 356);
-            button2.Name = "button2";
-            button2.Size = new Size(97, 78);
-            button2.TabIndex = 0;
-            button2.Text = "Modify";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            modifyPart.Location = new Point(360, 356);
+            modifyPart.Name = "modifyPart";
+            modifyPart.Size = new Size(97, 78);
+            modifyPart.TabIndex = 0;
+            modifyPart.Text = "Modify";
+            modifyPart.UseVisualStyleBackColor = true;
+            modifyPart.Click += modifyPart_Click;
             // 
-            // button3
+            // deletePart
             // 
-            button3.Location = new Point(475, 356);
-            button3.Name = "button3";
-            button3.Size = new Size(97, 78);
-            button3.TabIndex = 1;
-            button3.Text = "Delete";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            deletePart.Location = new Point(475, 356);
+            deletePart.Name = "deletePart";
+            deletePart.Size = new Size(97, 78);
+            deletePart.TabIndex = 1;
+            deletePart.Text = "Delete";
+            deletePart.UseVisualStyleBackColor = true;
+            deletePart.Click += deletePart_Click;
             // 
-            // button4
+            // addProduct
             // 
-            button4.Location = new Point(775, 356);
-            button4.Name = "button4";
-            button4.Size = new Size(97, 78);
-            button4.TabIndex = 2;
-            button4.Text = "Add";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            addProduct.Location = new Point(775, 356);
+            addProduct.Name = "addProduct";
+            addProduct.Size = new Size(97, 78);
+            addProduct.TabIndex = 2;
+            addProduct.Text = "Add";
+            addProduct.UseVisualStyleBackColor = true;
+            addProduct.Click += addProduct_Click;
             // 
-            // button1
+            // addPart
             // 
-            button1.Location = new Point(245, 356);
-            button1.Name = "button1";
-            button1.Size = new Size(97, 78);
-            button1.TabIndex = 3;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            addPart.Location = new Point(245, 356);
+            addPart.Name = "addPart";
+            addPart.Size = new Size(97, 78);
+            addPart.TabIndex = 3;
+            addPart.Text = "Add";
+            addPart.UseVisualStyleBackColor = true;
+            addPart.Click += addPart_Click;
             // 
-            // button5
+            // modifyProduct
             // 
-            button5.Location = new Point(887, 356);
-            button5.Name = "button5";
-            button5.Size = new Size(97, 78);
-            button5.TabIndex = 4;
-            button5.Text = "Modify";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
+            modifyProduct.Location = new Point(887, 356);
+            modifyProduct.Name = "modifyProduct";
+            modifyProduct.Size = new Size(97, 78);
+            modifyProduct.TabIndex = 4;
+            modifyProduct.Text = "Modify";
+            modifyProduct.UseVisualStyleBackColor = true;
+            modifyProduct.Click += modifyProduct_Click;
             // 
-            // button6
+            // deleteProduct
             // 
-            button6.Location = new Point(1001, 356);
-            button6.Name = "button6";
-            button6.Size = new Size(97, 78);
-            button6.TabIndex = 5;
-            button6.Text = "Delete";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
+            deleteProduct.Location = new Point(1001, 356);
+            deleteProduct.Name = "deleteProduct";
+            deleteProduct.Size = new Size(97, 78);
+            deleteProduct.TabIndex = 5;
+            deleteProduct.Text = "Delete";
+            deleteProduct.UseVisualStyleBackColor = true;
+            deleteProduct.Click += deleteProduct_Click;
             // 
             // button7
             // 
@@ -134,27 +134,27 @@
             button7.TabIndex = 6;
             button7.Text = "Exit";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            button7.Click += exit_Click;
             // 
-            // button8
+            // searchButton
             // 
-            button8.Location = new Point(283, 28);
-            button8.Name = "button8";
-            button8.Size = new Size(107, 67);
-            button8.TabIndex = 7;
-            button8.Text = "Search";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += button8_Click;
+            searchButton.Location = new Point(283, 28);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(107, 67);
+            searchButton.TabIndex = 7;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += searchButton_Click;
             // 
-            // button9
+            // searchButton2
             // 
-            button9.Location = new Point(812, 28);
-            button9.Name = "button9";
-            button9.Size = new Size(107, 67);
-            button9.TabIndex = 8;
-            button9.Text = "Search";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
+            searchButton2.Location = new Point(812, 28);
+            searchButton2.Name = "searchButton2";
+            searchButton2.Size = new Size(107, 67);
+            searchButton2.TabIndex = 8;
+            searchButton2.Text = "Search";
+            searchButton2.UseVisualStyleBackColor = true;
+            searchButton2.Click += searchButton2_Click;
             // 
             // textBox1
             // 
@@ -169,7 +169,6 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(207, 23);
             textBox2.TabIndex = 12;
-            
             // 
             // label1
             // 
@@ -221,7 +220,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             partsGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            partsGrid.Location = new Point(12, 145);
+            partsGrid.Location = new Point(37, 145);
             partsGrid.Name = "partsGrid";
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
@@ -231,7 +230,9 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             partsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            partsGrid.Size = new Size(611, 188);
+            partsGrid.RowHeadersVisible = false;
+            partsGrid.ScrollBars = ScrollBars.Vertical;
+            partsGrid.Size = new Size(580, 188);
             partsGrid.TabIndex = 24;
             // 
             // partID
@@ -290,7 +291,7 @@
             dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             productsGrid.DefaultCellStyle = dataGridViewCellStyle5;
-            productsGrid.Location = new Point(678, 145);
+            productsGrid.Location = new Point(636, 145);
             productsGrid.Name = "productsGrid";
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = SystemColors.Control;
@@ -300,7 +301,9 @@
             dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             productsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            productsGrid.Size = new Size(538, 188);
+            productsGrid.RowHeadersVisible = false;
+            productsGrid.ScrollBars = ScrollBars.Vertical;
+            productsGrid.Size = new Size(580, 188);
             productsGrid.TabIndex = 25;
             // 
             // dataGridViewTextBoxColumn1
@@ -352,15 +355,15 @@
             Controls.Add(label1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Controls.Add(button9);
-            Controls.Add(button8);
+            Controls.Add(searchButton2);
+            Controls.Add(searchButton);
             Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(deleteProduct);
+            Controls.Add(modifyProduct);
+            Controls.Add(addPart);
+            Controls.Add(addProduct);
+            Controls.Add(deletePart);
+            Controls.Add(modifyPart);
             Font = new Font("Segoe UI", 9F);
             Name = "Form1";
             Text = "Main ";
@@ -372,15 +375,15 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
+        private Button addPart;
+        private Button modifyPart;
+        private Button deletePart;
+        private Button addProduct;
+        private Button modifyProduct;
+        private Button deleteProduct;
         private Button button7;
-        private Button button8;
-        private Button button9;
+        private Button searchButton;
+        private Button searchButton2;
         private TextBox textBox1;
         private TextBox textBox2;
         private Label label1;
