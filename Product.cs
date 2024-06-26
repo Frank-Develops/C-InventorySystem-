@@ -18,11 +18,6 @@ namespace InventorySystem_Frank_Bishop
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
-        public void addAssociatedPart(Part p)
-        {
-
-            AssociatedParts.Add(p);
-        }
 
         public Product() { }
 
@@ -36,6 +31,12 @@ namespace InventorySystem_Frank_Bishop
             Min = min;
             Max = max;
 
+        }
+
+        public void addAssociatedPart(Part p)
+        {
+
+            AssociatedParts.Add(p);
         }
         public bool removeAssociatedPart(int i)
         {

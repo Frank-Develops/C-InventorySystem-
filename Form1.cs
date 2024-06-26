@@ -20,7 +20,6 @@ namespace InventorySystem_Frank_Bishop
             productsGrid.AllowUserToAddRows = false;
             partsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             productsGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
         }
 
 
@@ -77,7 +76,7 @@ namespace InventorySystem_Frank_Bishop
             modifyProduct.Show();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void exit_Click(object sender, EventArgs e)
         {
             this.Hide();
         }

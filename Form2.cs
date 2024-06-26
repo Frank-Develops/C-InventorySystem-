@@ -85,6 +85,7 @@ namespace InventorySystem_Frank_Bishop
             {
 
                 string companyName = textBox8.Text;
+                partID = Part.partIDNum++;
                 Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
                 Inventory.addPart(newPart);
                 this.Hide();

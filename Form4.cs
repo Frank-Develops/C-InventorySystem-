@@ -57,7 +57,6 @@ namespace InventorySystem_Frank_Bishop
             try
             {
                 productID = int.Parse(textBox2.Text);
-
                 price = decimal.Parse(textBox5.Text);
                 inventory = int.Parse(textBox4.Text);
                 max = int.Parse(textBox6.Text);

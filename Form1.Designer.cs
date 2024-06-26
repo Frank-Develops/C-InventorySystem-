@@ -134,7 +134,7 @@
             button7.TabIndex = 6;
             button7.Text = "Exit";
             button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
+            button7.Click += exit_Click;
             // 
             // searchButton
             // 

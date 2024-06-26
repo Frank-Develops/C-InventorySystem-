@@ -63,8 +63,8 @@ namespace InventorySystem_Frank_Bishop
 
         private void addToProduct_Click(object sender, EventArgs e)
         {
-            Part associatedPart = (Part)partsProductGridM.CurrentRow.DataBoundItem;
-            int lookUp = associatedPart.PartID;
+            string lookUps = partsProductGridM.SelectedRows[0].Cells[0].Value.ToString();
+            int lookUp = int.Parse(lookUps);
             Part addedPart = productModify.lookupAssociatedPart(lookUp);
             partsAssociatedAdd.Add(addedPart);
         }
@@ -159,9 +159,6 @@ namespace InventorySystem_Frank_Bishop
             {
                 return;
             }
-
-
-
 
         }
 
