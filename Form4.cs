@@ -31,22 +31,22 @@ namespace InventorySystem_Frank_Bishop
         BindingList<Part> partsAssociatedAdd = new BindingList<Part>();
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void addPartProduct_Click(object sender, EventArgs e)
         {
-           
+
             Part associatedPart = (Part)partsProductGrid.CurrentRow.DataBoundItem;
             partsAssociatedAdd.Add(associatedPart);
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void cancelProduct_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveProduct_Click(object sender, EventArgs e)
         {
             int productID;
             decimal price;
@@ -57,12 +57,13 @@ namespace InventorySystem_Frank_Bishop
             try
             {
                 productID = int.Parse(textBox2.Text);
-              
+
                 price = decimal.Parse(textBox5.Text);
                 inventory = int.Parse(textBox4.Text);
                 max = int.Parse(textBox6.Text);
                 min = int.Parse(textBox7.Text);
-            } catch
+            }
+            catch
             {
                 MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
                 return;
@@ -96,7 +97,7 @@ namespace InventorySystem_Frank_Bishop
             mainForm.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void deletePartProduct_Click(object sender, EventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
@@ -105,9 +106,31 @@ namespace InventorySystem_Frank_Bishop
                 {
                     partsAssociatedGrid.Rows.RemoveAt(partsRow.Index);
                 }
-            } else
+            }
+            else
             {
                 return;
+            }
+        }
+
+        private void searchAdd_Click(object sender, EventArgs e)
+        {
+            int search = int.Parse(textBox1.Text);
+            Part searchPart = Inventory.lookupPart(search);
+
+            foreach (DataGridViewRow partRow in partsProductGrid.Rows)
+            {
+
+                string partIDString = partRow.Cells[0].Value.ToString();
+                int partID = int.Parse(partIDString);
+
+
+                if (partID == searchPart.PartID)
+                {
+                    partRow.Selected = true;
+
+                    break;
+                }
             }
         }
     }

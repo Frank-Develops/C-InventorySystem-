@@ -60,14 +60,14 @@ namespace InventorySystem_Frank_Bishop
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void cancelModifyPart_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveModifyPart_Click(object sender, EventArgs e)
         {
 
             int partID;
@@ -75,6 +75,7 @@ namespace InventorySystem_Frank_Bishop
             int inventory;
             int max;
             int min;
+            int partIndex = 0;
 
             try
             {
@@ -110,48 +111,41 @@ namespace InventorySystem_Frank_Bishop
 
             if (radioButton1.Checked)
             {
+                foreach (Part p in Inventory.AllParts)
+                {
+
+                    if (p.PartID == partID)
+                    {
+                        partIndex = Inventory.AllParts.IndexOf(p);
+                    }
+                }
                 string machineID = textBox5.Text;
                 int machineIDnum = int.Parse(machineID);
                 Part newPart = new Inhouse(partID, name, price, inventory, min, max, machineIDnum);
-                Inventory.addPart(newPart);
+                Inventory.updatePart(partIndex, newPart);
                 this.Hide();
                 Form1 mainForm = new Form1();
                 mainForm.Show();
             }
             else
             {
+                foreach (Part p in Inventory.AllParts)
+                {
 
+                    if (p.PartID == partID)
+                    {
+                        partIndex = Inventory.AllParts.IndexOf(p);
+                    }
+                }
                 string companyName = textBox5.Text;
                 Part newPart = new Outsourced(partID, name, price, inventory, min, max, companyName);
-                Inventory.addPart(newPart);
+                Inventory.updatePart(partIndex, newPart);
                 this.Hide();
                 Form1 mainForm = new Form1();
                 mainForm.Show();
             }
 
-            //if (radioButton1.Checked)
-            //{
 
-            //    Part modifiedPart = new Inhouse(
-
-            //        int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), int.Parse(textBox5.Text)
-
-            //        );
-            //    Inventory.updatePart(partIndex, modifiedPart);
-            //}
-            //else
-            //{
-            //    Part modifiedPart = new Outsourced(
-
-            //        int.Parse(textBox1.Text), textBox2.Text, decimal.Parse(textBox4.Text), int.Parse(textBox3.Text), int.Parse(textBox6.Text), int.Parse(textBox7.Text), textBox5.Text
-
-            //        );
-            //    Inventory.updatePart(partIndex, modifiedPart);
-            //};
-
-            //this.Hide();
-            //Form1 mainForm = new Form1();
-            //mainForm.Show();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

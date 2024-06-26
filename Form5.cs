@@ -61,7 +61,7 @@ namespace InventorySystem_Frank_Bishop
 
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void addToProduct_Click(object sender, EventArgs e)
         {
             Part associatedPart = (Part)partsProductGridM.CurrentRow.DataBoundItem;
             int lookUp = associatedPart.PartID;
@@ -71,14 +71,14 @@ namespace InventorySystem_Frank_Bishop
 
 
 
-        private void button4_Click(object sender, EventArgs e)
+        private void cancelModify_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form1 mainForm = new Form1();
             mainForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void saveModifyProduct_Click(object sender, EventArgs e)
 
         {
             int productID;
@@ -101,7 +101,7 @@ namespace InventorySystem_Frank_Bishop
                 MessageBox.Show("Product ID, Price, Inventory, Max and Min must all be numbers");
                 return;
             }
-            
+
             productID = int.Parse(textBox2.Text);
             string productName = textBox3.Text;
             inventory = int.Parse(textBox4.Text);
@@ -143,7 +143,7 @@ namespace InventorySystem_Frank_Bishop
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void deleteFromProduct_Click(object sender, EventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
@@ -154,7 +154,8 @@ namespace InventorySystem_Frank_Bishop
                     partsAssociatedGridM.Rows.RemoveAt(partsRow.Index);
                     productModify.removeAssociatedPart(0);
                 }
-            } else
+            }
+            else
             {
                 return;
             }
@@ -162,6 +163,27 @@ namespace InventorySystem_Frank_Bishop
 
 
 
+        }
+
+        private void searchModify_Click(object sender, EventArgs e)
+        {
+            int search = int.Parse(textBox1.Text);
+            Part searchPart = Inventory.lookupPart(search);
+
+            foreach (DataGridViewRow partRow in partsProductGridM.Rows)
+            {
+
+                string partIDString = partRow.Cells[0].Value.ToString();
+                int partID = int.Parse(partIDString);
+
+
+                if (partID == searchPart.PartID)
+                {
+                    partRow.Selected = true;
+
+                    break;
+                }
+            }
         }
     }
 }

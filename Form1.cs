@@ -23,12 +23,8 @@ namespace InventorySystem_Frank_Bishop
 
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button8_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
             int search = int.Parse(textBox1.Text);
             Part searchPart = Inventory.lookupPart(search);
@@ -49,14 +45,14 @@ namespace InventorySystem_Frank_Bishop
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addPart_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form2 addParts = new Form2();
             addParts.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void modifyPart_Click(object sender, EventArgs e)
         {
             this.Hide();
             string partIDString = partsGrid.SelectedRows[0].Cells[0].Value.ToString();
@@ -65,14 +61,14 @@ namespace InventorySystem_Frank_Bishop
             modifyParts.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void addProduct_Click(object sender, EventArgs e)
         {
             this.Hide();
             Form4 addProduct = new Form4();
             addProduct.Show();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void modifyProduct_Click(object sender, EventArgs e)
         {
             this.Hide();
             string productIDString = productsGrid.SelectedRows[0].Cells[0].Value.ToString();
@@ -86,7 +82,7 @@ namespace InventorySystem_Frank_Bishop
             this.Hide();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void deletePart_Click(object sender, EventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Are you sure you want to delete this part?", "Confirm", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
@@ -123,7 +119,8 @@ namespace InventorySystem_Frank_Bishop
             }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+
+        private void deleteProduct_Click(object sender, EventArgs e)
         {
             DialogResult confirm = MessageBox.Show("Are you sure you want to delete this product?", "Confirm", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
@@ -139,7 +136,7 @@ namespace InventorySystem_Frank_Bishop
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void searchButton2_Click(object sender, EventArgs e)
         {
             int search = int.Parse(textBox2.Text);
             Product searchProduct = Inventory.lookupProduct(search);

@@ -35,13 +35,13 @@
             label5 = new Label();
             label6 = new Label();
             label7 = new Label();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            saveProduct = new Button();
+            deletePartProduct = new Button();
+            addPartProduct = new Button();
+            cancelProduct = new Button();
             label8 = new Label();
             label9 = new Label();
-            button5 = new Button();
+            searchAdd = new Button();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             textBox3 = new TextBox();
@@ -137,49 +137,49 @@
             label7.TabIndex = 6;
             label7.Text = "Min";
             // 
-            // button1
+            // saveProduct
             // 
-            button1.Font = new Font("Segoe UI", 12F);
-            button1.Location = new Point(804, 594);
-            button1.Name = "button1";
-            button1.Size = new Size(79, 43);
-            button1.TabIndex = 7;
-            button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            saveProduct.Font = new Font("Segoe UI", 12F);
+            saveProduct.Location = new Point(804, 594);
+            saveProduct.Name = "saveProduct";
+            saveProduct.Size = new Size(79, 43);
+            saveProduct.TabIndex = 7;
+            saveProduct.Text = "Save";
+            saveProduct.UseVisualStyleBackColor = true;
+            saveProduct.Click += saveProduct_Click;
             // 
-            // button2
+            // deletePartProduct
             // 
-            button2.Font = new Font("Segoe UI", 12F);
-            button2.Location = new Point(917, 538);
-            button2.Name = "button2";
-            button2.Size = new Size(73, 50);
-            button2.TabIndex = 8;
-            button2.Text = "Delete";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            deletePartProduct.Font = new Font("Segoe UI", 12F);
+            deletePartProduct.Location = new Point(917, 538);
+            deletePartProduct.Name = "deletePartProduct";
+            deletePartProduct.Size = new Size(73, 50);
+            deletePartProduct.TabIndex = 8;
+            deletePartProduct.Text = "Delete";
+            deletePartProduct.UseVisualStyleBackColor = true;
+            deletePartProduct.Click += deletePartProduct_Click;
             // 
-            // button3
+            // addPartProduct
             // 
-            button3.Font = new Font("Segoe UI", 12F);
-            button3.Location = new Point(917, 273);
-            button3.Name = "button3";
-            button3.Size = new Size(73, 51);
-            button3.TabIndex = 9;
-            button3.Text = "Add";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
+            addPartProduct.Font = new Font("Segoe UI", 12F);
+            addPartProduct.Location = new Point(917, 273);
+            addPartProduct.Name = "addPartProduct";
+            addPartProduct.Size = new Size(73, 51);
+            addPartProduct.TabIndex = 9;
+            addPartProduct.Text = "Add";
+            addPartProduct.UseVisualStyleBackColor = true;
+            addPartProduct.Click += addPartProduct_Click;
             // 
-            // button4
+            // cancelProduct
             // 
-            button4.Font = new Font("Segoe UI", 12F);
-            button4.Location = new Point(901, 594);
-            button4.Name = "button4";
-            button4.Size = new Size(89, 43);
-            button4.TabIndex = 10;
-            button4.Text = "Cancel";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            cancelProduct.Font = new Font("Segoe UI", 12F);
+            cancelProduct.Location = new Point(901, 594);
+            cancelProduct.Name = "cancelProduct";
+            cancelProduct.Size = new Size(89, 43);
+            cancelProduct.TabIndex = 10;
+            cancelProduct.Text = "Cancel";
+            cancelProduct.UseVisualStyleBackColor = true;
+            cancelProduct.Click += cancelProduct_Click;
             // 
             // label8
             // 
@@ -201,14 +201,15 @@
             label9.TabIndex = 14;
             label9.Text = "All Candidate Parts";
             // 
-            // button5
+            // searchAdd
             // 
-            button5.Location = new Point(646, 12);
-            button5.Name = "button5";
-            button5.Size = new Size(75, 23);
-            button5.TabIndex = 15;
-            button5.Text = "Search";
-            button5.UseVisualStyleBackColor = true;
+            searchAdd.Location = new Point(646, 12);
+            searchAdd.Name = "searchAdd";
+            searchAdd.Size = new Size(75, 23);
+            searchAdd.TabIndex = 15;
+            searchAdd.Text = "Search";
+            searchAdd.UseVisualStyleBackColor = true;
+            searchAdd.Click += searchAdd_Click;
             // 
             // textBox1
             // 
@@ -365,13 +366,13 @@
             Controls.Add(textBox3);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Controls.Add(button5);
+            Controls.Add(searchAdd);
             Controls.Add(label9);
             Controls.Add(label8);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(cancelProduct);
+            Controls.Add(addPartProduct);
+            Controls.Add(deletePartProduct);
+            Controls.Add(saveProduct);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -396,13 +397,13 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button saveProduct;
+        private Button deletePartProduct;
+        private Button addPartProduct;
+        private Button cancelProduct;
         private Label label8;
         private Label label9;
-        private Button button5;
+        private Button searchAdd;
         private TextBox textBox1;
         private TextBox textBox2;
         private TextBox textBox3;
