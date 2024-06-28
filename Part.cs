@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InventorySystem_Frank_Bishop
 {
-    internal class Part
+    abstract class Part
     {
         public int PartID { get; set; }
 
