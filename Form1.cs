@@ -112,7 +112,7 @@ namespace InventorySystem_Frank_Bishop
 
         private void exit_Click(object sender, EventArgs e)
         {
-            this.Close();
+            System.Windows.Forms.Application.ExitThread();
         }
 
         private void deletePart_Click(object sender, EventArgs e)
@@ -162,25 +162,57 @@ namespace InventorySystem_Frank_Bishop
 
         private void searchButton2_Click(object sender, EventArgs e)
         {
-            int search = int.Parse(textBox2.Text);
-            Product searchProduct = Inventory.lookupProduct(search);
+            string search = textBox2.Text;
 
-            foreach (DataGridViewRow productRow in productsGrid.Rows)
+            try
+            {
+                int searchInt = int.Parse(search);
+                Product searchProduct = Inventory.lookupProduct(searchInt);
+                if (searchProduct == null)
+                {
+                    MessageBox.Show("No Product Found");
+                    return;
+                }
+                foreach (DataGridViewRow productRow in productsGrid.Rows)
+                {
+
+                    string productIDString = productRow.Cells[0].Value.ToString();
+                    int productID = int.Parse(productIDString);
+
+
+
+
+                    if (productID == searchProduct.ProductID)
+                    {
+                        productRow.Selected = true;
+
+                        break;
+                    }
+                }
+
+            }
+            catch
             {
 
-                string productIDString = productRow.Cells[0].Value.ToString();
-                int productID = int.Parse(productIDString);
-
-
-                if (productID == searchProduct.ProductID)
+                foreach (DataGridViewRow productRow in productsGrid.Rows)
                 {
-                    productRow.Selected = true;
 
-                    break;
+
+                    string productName = productRow.Cells[1].Value.ToString();
+
+
+
+                    if (productName == search)
+                    {
+                        productRow.Selected = true;
+
+                        return;
+                    }
                 }
+                MessageBox.Show("No Product Found");
+
             }
-
-
+         
 
 
         }

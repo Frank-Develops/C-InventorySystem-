@@ -164,22 +164,51 @@ namespace InventorySystem_Frank_Bishop
 
         private void searchModify_Click(object sender, EventArgs e)
         {
-            int search = int.Parse(textBox1.Text);
-            Part searchPart = Inventory.lookupPart(search);
+            string search = textBox1.Text;
+            try
+            {
+                int searchInt = int.Parse(search);
+                Part searchPart = Inventory.lookupPart(searchInt);
+                if (searchPart == null)
+                {
+                    MessageBox.Show("No Part Found");
+                    return;
+                }
+                foreach (DataGridViewRow partRow in partsProductGridM.Rows)
+                {
 
-            foreach (DataGridViewRow partRow in partsProductGridM.Rows)
+                    string partIDString = partRow.Cells[0].Value.ToString();
+                    int partID = int.Parse(partIDString);
+
+                    if (partID == searchPart.PartID)
+                    {
+                        partRow.Selected = true;
+
+                        break;
+                    }
+                }
+
+            }
+            catch
             {
 
-                string partIDString = partRow.Cells[0].Value.ToString();
-                int partID = int.Parse(partIDString);
-
-
-                if (partID == searchPart.PartID)
+                foreach (DataGridViewRow partRow in partsProductGridM.Rows)
                 {
-                    partRow.Selected = true;
 
-                    break;
+
+                    string partName = partRow.Cells[1].Value.ToString();
+
+
+
+                    if (partName == search)
+                    {
+                        partRow.Selected = true;
+
+                        return;
+                    }
                 }
+                MessageBox.Show("No Part Found");
+
             }
         }
     }
