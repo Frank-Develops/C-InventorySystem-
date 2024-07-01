@@ -116,6 +116,7 @@ namespace InventorySystem_Frank_Bishop
         {
             int search = int.Parse(textBox1.Text);
             Part searchPart = Inventory.lookupPart(search);
+            
 
             foreach (DataGridViewRow partRow in partsProductGrid.Rows)
             {
